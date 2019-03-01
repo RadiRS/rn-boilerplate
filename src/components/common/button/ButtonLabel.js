@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Text } from 'native-base';
-import { Colors } from '../../../theme';
+import { Colors } from '../../../themes';
 
 const ButtonLabel = props => {
   const {

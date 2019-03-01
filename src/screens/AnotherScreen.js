@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import ButtonLabel from '../components/common/button/ButtonLabel';
 import NavigationServices from '../navigator/NavigationServices';
+import ButtonLabel from '../components/common/button/ButtonLabel';
 
-class WelcomeScreen extends Component {
+class AnotherScreen extends Component {
   render() {
     return (
       <View>
         <ButtonLabel
-          onPress={() => NavigationServices.navigate('Another')}
+          onPress={() => NavigationServices.navigate('Welcome')}
           block
-          label="Go to another screen"
+          label="Go to welcome screen"
         />
       </View>
     );
   }
 }
 
-export default WelcomeScreen;
+export default AnotherScreen;

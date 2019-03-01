@@ -7,11 +7,12 @@ import {
 // Components
 // import DrawerNavigator from '../components/drawer/DrawerNavigator';
 // Screens
-import { Welcome } from '../screens';
+import { Welcome, Another } from '../screens';
 
 // Home Stack Navigator
 const AppHomeStackNavigator = createStackNavigator({
-  Welcome
+  Welcome,
+  Another
 });
 
 // Profile Stack Navigator
