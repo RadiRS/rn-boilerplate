@@ -9,7 +9,7 @@
     "android": "cd android && ./gradlew clean && cd .. && react-native run-android"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "native-base": "^2.12.0",
     "react": "16.6.3",
     "react-native": "0.58.6",
