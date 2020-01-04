@@ -11,7 +11,10 @@
     "ios-clean": "cd ios && rm -rf build && cd ..",
     "start": "npx react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "set-env-dev": "cp src/config/environment/dev.env.js src/config/env.config.js",
+    "set-env-test": "cp src/config/environment/test.env.js src/config/env.config.js",
+    "set-env-prod": "cp src/config/environment/prod.env.js src/config/env.config.js"
   },
   "dependencies": {
     "react": "16.9.0",
