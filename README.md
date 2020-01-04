@@ -1,6 +1,6 @@
 # Boilerplate React Native
 
-This is a boilerplate for react native project which is include some configuration
+This is a boilerplate for react native project which contain simple configuration
 
 ## Getting Started
 
@@ -62,16 +62,12 @@ npm run test / yarn test
 Setup your signed apk by follow [this](https://facebook.github.io/react-native/docs/signed-apk-android) tutorial and run this command
 
 ```
-npm run build-android
+npm run android-build / yarn android-build
 ```
 
 ## Built With
 
 - [React Native](https://facebook.github.io/react-native/) - The mobile framework used
-- [Redux](https://redux.js.org/) - A Predictable State Container for JS Apps
-- [Redux Thunk](https://github.com/reduxjs/redux-thunk) - Thunk middleware for Redux
-- [React Navigation](https://reactnavigation.org/) - Routing and navigation for your React Native apps
-- [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
 ## Contributing
 
