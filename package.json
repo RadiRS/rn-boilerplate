@@ -18,12 +18,14 @@
     "@babel/runtime": "7.6.2",
     "@react-native-community/eslint-config": "0.0.5",
     "babel-jest": "24.9.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "6.5.1",
     "eslint-config-prettier": "6.9.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "husky": "^3.1.0",
     "jest": "24.9.0",
     "metro-react-native-babel-preset": "0.56.0",
+    "react-native-dotenv": "^0.2.0",
     "react-test-renderer": "16.9.0"
   },
   "jest": {
