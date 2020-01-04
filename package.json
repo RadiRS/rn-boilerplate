@@ -3,8 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "pod-install": "cd ios && pod install && cd ..",
     "android": "npx react-native run-android",
+    "android-build": "cd android && ./gradlew app:assembleRelease && cd ..",
+    "android-clean": "cd android && ./gradlew clean && cd ..",
     "ios": "npx react-native run-ios",
+    "ios-clean": "cd ios && rm -rf build && cd ..",
     "start": "npx react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint ."
