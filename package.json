@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepush": "yarn lint && yarn test",
     "android": "npx react-native run-android",
     "ios": "npx react-native run-ios",
     "start": "npx react-native start --reset-cache",
@@ -21,6 +22,7 @@
     "eslint": "6.5.1",
     "eslint-config-prettier": "6.9.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
+    "husky": "^3.1.0",
     "jest": "24.9.0",
     "metro-react-native-babel-preset": "0.56.0",
     "react-test-renderer": "16.9.0"
