@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall": "husky install",
     "start": "npx react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint .",
