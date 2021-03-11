@@ -3,11 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "npx react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "android": "npx react-native run-android",
+    "android-build": "yarn android-clean; cd android && ./gradlew app:assembleRelease && cd ..",
+    "android-build-bundle": "yarn android-clean; cd android && ./gradlew app:bundleRelease && cd ..",
+    "android-clean": "cd android && ./gradlew clean && cd ..",
+    "ios": "npx react-native run-ios",
+    "ios-clean": "cd ios && rm -rf build && cd ..",
+    "pod-install": "cd ios && pod install && cd ..",
+    "set-env-dev": "cp src/config/environment/develop.env .env",
+    "set-env-test": "cp src/config/environment/testing.env .env",
+    "set-env-prod": "cp src/config/environment/production.env .env"
   },
   "dependencies": {
     "react": "16.13.1",
