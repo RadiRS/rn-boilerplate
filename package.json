@@ -15,7 +15,8 @@
     "pod-install": "cd ios && pod install && cd ..",
     "set-env-dev": "cp src/config/environment/develop.env .env",
     "set-env-test": "cp src/config/environment/testing.env .env",
-    "set-env-prod": "cp src/config/environment/production.env .env"
+    "set-env-prod": "cp src/config/environment/production.env .env",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "16.13.1",
@@ -27,6 +28,7 @@
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
+    "husky": "^5.1.3",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "16.13.1"
