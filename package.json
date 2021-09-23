@@ -5,9 +5,18 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "android-build": "yarn android-clean; cd android && ./gradlew app:assembleRelease && cd ..",
+    "android-build-bundle": "yarn android-clean; cd android && ./gradlew app:bundleRelease && cd ..",
+    "android-clean": "cd android && ./gradlew clean && cd ..",
+    "ios-clean": "cd ios && rm -rf build && cd ..",
+    "pod-install": "cd ios && pod install && cd ..",
+    "set-env-dev": "cp src/config/environment/develop.env .env",
+    "set-env-test": "cp src/config/environment/testing.env .env",
+    "set-env-prod": "cp src/config/environment/production.env .env",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -22,7 +31,8 @@
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.0",
     "react-native-codegen": "^0.0.7",
-    "react-test-renderer": "17.0.2"
+    "react-test-renderer": "17.0.2",
+    "husky": "^7.0.0"
   },
   "jest": {
     "preset": "react-native"
