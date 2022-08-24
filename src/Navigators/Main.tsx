@@ -1,6 +1,6 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {HomeContainer} from '@/Containers';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { HomeContainer } from '@/Containers';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,7 +12,7 @@ const MainNavigator = () => {
         name="Home"
         component={HomeContainer}
         options={{
-          tabBarIconStyle: {display: 'none'},
+          tabBarIconStyle: { display: 'none' },
           tabBarLabelPosition: 'beside-icon',
           headerShown: false,
         }}

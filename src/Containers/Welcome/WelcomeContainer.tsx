@@ -1,6 +1,6 @@
-import {View, Text} from 'react-native';
-import React, {useEffect} from 'react';
-import {navigateAndSimpleReset} from '@/Navigators/utils';
+import { View, Text } from 'react-native';
+import React, { useEffect } from 'react';
+import { navigateAndSimpleReset } from '@/Navigators/utils';
 
 const WelcomeContainer = () => {
   const init = async () => {
@@ -19,7 +19,7 @@ const WelcomeContainer = () => {
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Welcome</Text>
     </View>
   );

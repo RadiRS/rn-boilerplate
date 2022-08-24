@@ -39,7 +39,7 @@ export function navigateAndSimpleReset(name: string, index = 0) {
     navigationRef.dispatch(
       CommonActions.reset({
         index,
-        routes: [{name}],
+        routes: [{ name }],
       }),
     );
   }
