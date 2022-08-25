@@ -17,7 +17,6 @@ const HomeContainer = () => {
       <View style={styles.mb} />
       <Button
         title="Change to Bahasa"
-        color="red"
         onPress={() => Translations.changeLanguage('id')}
       />
       <View style={styles.mb} />
