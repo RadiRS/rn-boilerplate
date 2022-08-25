@@ -13,6 +13,7 @@ export type RootStackParamList = {
   Welcome: undefined;
   Main: undefined;
   Home: undefined;
+  User: undefined;
 };
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();

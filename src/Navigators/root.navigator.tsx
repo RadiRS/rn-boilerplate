@@ -12,7 +12,7 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 
-import MainNavigator from './main';
+import AppNavigator from './app.navigator';
 import { navigationRef, RootStackParamList } from './utils';
 
 import { WelcomeContainer } from '@/containers';
@@ -39,7 +39,7 @@ const RootNavigator = () => {
             />
             <Stack.Screen
               name="Main"
-              component={MainNavigator}
+              component={AppNavigator}
               options={{ animation: 'none' }}
             />
           </Stack.Navigator>

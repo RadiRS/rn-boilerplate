@@ -12,8 +12,8 @@ const HomeContainer = () => {
     <View style={styles.container}>
       <HeaderSection />
       <View style={styles.mb} />
+      <Text>{t('example.helloUser', { name: 'John' })}</Text>
       <Text>{t('welcome')}</Text>
-      <Text>{t('example.helloUser', { name: 'Radi' })}</Text>
       <View style={styles.mb} />
       <Button
         title="Change to Bahasa"
