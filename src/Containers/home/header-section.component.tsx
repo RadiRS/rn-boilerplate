@@ -13,6 +13,10 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     backgroundColor: 'lightblue',
+    borderRadius: 20,
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

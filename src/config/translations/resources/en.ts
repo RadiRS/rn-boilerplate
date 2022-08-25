@@ -1,10 +1,10 @@
 export default {
-  welcome: 'Welcome to React Native RNBoilerplateTemplate by TheCodingMachine',
+  welcome: 'Welcome to React Native Boilerplate by RadiRS',
   actions: {
     continue: 'Continue',
   },
   example: {
-    helloUser: 'I am a fake user, my name is {{name}}',
+    helloUser: 'Hello {{name}}',
     labels: {
       userId: 'Enter a user id',
     },

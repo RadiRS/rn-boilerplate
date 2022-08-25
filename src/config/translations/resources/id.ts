@@ -4,7 +4,7 @@ export default {
     continue: 'Lanjutkan',
   },
   example: {
-    helloUser: 'Halo saya user palsu, nama saya {{name}}',
+    helloUser: 'Halo {{name}}',
     labels: {
       userId: 'Masukkan id user',
     },
