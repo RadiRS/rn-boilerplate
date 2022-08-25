@@ -1,7 +1,16 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  useColorScheme,
+} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 
 import MainNavigator from './main';
 import { navigationRef, RootStackParamList } from './utils';
@@ -13,11 +22,15 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 // @refresh reset
 const RootNavigator = () => {
+  const scheme = useColorScheme();
+  const theme = scheme === 'dark' ? DarkTheme : DefaultTheme;
+  const barStyle = scheme === 'dark' ? 'light-content' : 'dark-content';
+
   return (
     <GestureHandlerRootView style={styles.fill}>
       <SafeAreaView style={styles.fill}>
-        <NavigationContainer ref={navigationRef}>
-          <StatusBar barStyle="dark-content" />
+        <NavigationContainer ref={navigationRef} theme={theme}>
+          <StatusBar barStyle={barStyle} />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
               name="Welcome"

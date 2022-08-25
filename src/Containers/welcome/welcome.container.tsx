@@ -1,6 +1,7 @@
 import { View, StyleSheet, Image } from 'react-native';
 import React, { useEffect } from 'react';
 import { navigateAndSimpleReset } from '@/navigators/utils';
+import { AppImage } from '@/assets';
 
 const WelcomeContainer = () => {
   const init = async () => {
@@ -19,11 +20,7 @@ const WelcomeContainer = () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('@/Assets/Images/logo.png')}
-        style={styles.img}
-        borderRadius={20}
-      />
+      <Image source={AppImage.logo.app} style={styles.img} borderRadius={20} />
     </View>
   );
 };
