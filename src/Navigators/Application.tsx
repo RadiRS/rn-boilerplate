@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -17,8 +17,13 @@ const ApplicationNavigator = () => {
     <GestureHandlerRootView style={styles.fill}>
       <SafeAreaView style={styles.fill}>
         <NavigationContainer ref={navigationRef}>
+          <StatusBar barStyle="dark-content" />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Welcome" component={WelcomeContainer} />
+            <Stack.Screen
+              name="Welcome"
+              component={WelcomeContainer}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="Main"
               component={MainNavigator}
