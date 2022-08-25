@@ -16,12 +16,13 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const RootNavigator = () => {
   const { darkMode, NavigationTheme, Layout } = useTheme();
   const barStyle = darkMode ? 'light-content' : 'dark-content';
+  const backgroundColor = NavigationTheme.colors.card;
 
   return (
     <GestureHandlerRootView style={Layout.fill}>
-      <SafeAreaView style={Layout.fill}>
+      <SafeAreaView style={[Layout.fill, { backgroundColor: backgroundColor }]}>
         <NavigationContainer ref={navigationRef} theme={NavigationTheme}>
-          <StatusBar barStyle={barStyle} />
+          <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
               name="Welcome"

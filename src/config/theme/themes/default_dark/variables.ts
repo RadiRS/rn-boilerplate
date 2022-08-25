@@ -6,7 +6,6 @@ const Colors = {
 
 const NavigationColors = {
   primary: Colors.primary,
-  text: Colors.text,
 };
 
 export default {

@@ -1,10 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { RootNavigator } from '@/navigators';
-import '@/config/translations';
+import { persistor, store } from './store';
+import './config/translations';
 
-const App: FC = () => {
-  return <RootNavigator />;
+const App = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <RootNavigator />
+      </PersistGate>
+    </Provider>
+  );
 };
 
 export default App;

@@ -16,20 +16,21 @@ import {
   ThemeNavigationTheme,
   ThemeNavigationColors,
 } from '@/config/theme/theme';
+import { useSelector } from 'react-redux';
+import { ThemeState } from '@/store/theme';
 
 export default function () {
   // Get the scheme device
   const colorScheme = useColorScheme();
 
   // Get current theme from the store
-  // const currentTheme = useSelector(
-  //   (state: { theme: ThemeState }) => state.theme.theme,
-  // );
-  // const isDark = useSelector(
-  //   (state: { theme: ThemeState }) => state.theme.darkMode,
-  // );
-  const currentTheme = 'default';
-  const isDark = null;
+  const currentTheme = useSelector(
+    (state: { theme: ThemeState }) => state.theme.theme,
+  );
+  const isDark = useSelector(
+    (state: { theme: ThemeState }) => state.theme.darkMode,
+  );
+
   const darkMode = isDark === null ? colorScheme === 'dark' : isDark;
 
   let variables = {};
