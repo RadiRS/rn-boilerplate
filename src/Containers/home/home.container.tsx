@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import Translations from '@/Translations';
+import Translations from '@/translations';
 
-import HeaderSection from './HeaderSection';
+import HeaderSection from './header-section.component';
 
 const HomeContainer = () => {
   const { t } = useTranslation();

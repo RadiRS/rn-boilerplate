@@ -14,7 +14,8 @@
     "start": "react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "asset-link": "npx react-native-asset"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.3.3",

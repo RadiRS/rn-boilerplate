@@ -1,6 +1,6 @@
 import { View, StyleSheet, Image } from 'react-native';
 import React, { useEffect } from 'react';
-import { navigateAndSimpleReset } from '@/Navigators/utils';
+import { navigateAndSimpleReset } from '@/navigators/utils';
 
 const WelcomeContainer = () => {
   const init = async () => {

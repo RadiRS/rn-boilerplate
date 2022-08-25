@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import ApplicationNavigator from '@/Navigators/Application';
+import RootNavigator from '@/navigators/root-navigator';
 
-import './Translations';
+import './translations';
 
 const App: FC = () => {
-  return <ApplicationNavigator />;
+  return <RootNavigator />;
 };
 
 export default App;
