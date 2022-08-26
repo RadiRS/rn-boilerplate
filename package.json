@@ -15,7 +15,9 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky install",
-    "asset-link": "npx react-native-asset"
+    "asset-link": "npx react-native-asset",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
@@ -40,6 +42,13 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.26",
+    "@storybook/react-native": "^5.3.25",
+    "@storybook/react-native-server": "^5.3.23",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.69.3",
@@ -47,11 +56,13 @@
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.5",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.32.0",
     "husky": "^8.0.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.70.3",
+    "react-dom": "18.0.0",
     "react-test-renderer": "18.0.0",
     "typescript": "^4.4.4"
   },
