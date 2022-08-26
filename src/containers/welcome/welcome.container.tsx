@@ -2,8 +2,10 @@ import { View, StyleSheet, Image } from 'react-native';
 import React, { useEffect } from 'react';
 import { navigateAndSimpleReset } from '@/navigators/utils';
 import { AppImage } from '@/assets';
+import { useTheme } from '@/hooks';
 
 const WelcomeContainer = () => {
+  const { NavigationTheme } = useTheme();
   const init = async () => {
     await new Promise(resolve =>
       setTimeout(() => {
@@ -19,7 +21,11 @@ const WelcomeContainer = () => {
   });
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: NavigationTheme.colors.card },
+      ]}>
       <Image source={AppImage.logo.app} style={styles.img} borderRadius={20} />
     </View>
   );
@@ -30,7 +36,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
   },
   img: {
     width: 100,

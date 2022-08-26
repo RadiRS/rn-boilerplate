@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React, { FC } from 'react';
+import { useTheme } from '@/hooks';
 
 const UserContainer: FC = () => {
+  const { Fonts } = useTheme();
   return (
     <View style={styles.container}>
-      <Text>User Screen</Text>
+      <Text style={Fonts.titleSmall}>User Screen</Text>
     </View>
   );
 };
