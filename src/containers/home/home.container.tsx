@@ -48,8 +48,9 @@ const HomeContainer = () => {
       <TouchableOpacity
         onPress={() => onPressChangeTheme({ darkMode: false })}
         style={Common.button.rounded}>
-        <Text style={Fonts.textSmall}>Change to Ligh Mode</Text>
+        <Text style={Fonts.textSmall}>Change to Light Mode</Text>
       </TouchableOpacity>
+      <View style={styles.mb} />
     </View>
   );
 };
