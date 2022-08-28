@@ -18,6 +18,7 @@
 		8C39A1AEA17D4520A1CEB6D2 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2107C8B7C36940B4AEDFCD08 /* SourceSansPro-Regular.ttf */; };
 		BA99F559713849F18842ED71 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D96F9DC5CE348CF9F7FC9C6 /* SourceSansPro-Bold.ttf */; };
 		C0ACE47D078E48B093F61230 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46E80D794B374F938FB57AAF /* SourceSansPro-SemiBold.ttf */; };
+		606A4DF8B3E3459F9567949C /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B05795B4C5E42C9A333A295 /* Lato-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-ReactNativeBoilerplate-ReactNativeBoilerplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBoilerplate-ReactNativeBoilerplateTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeBoilerplate-ReactNativeBoilerplateTests/Pods-ReactNativeBoilerplate-ReactNativeBoilerplateTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D96F9DC5CE348CF9F7FC9C6 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Bold.ttf"; path = "../src/assets/fonts/SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		0B05795B4C5E42C9A333A295 /* Lato-Italic.ttf */ = {isa = PBXFileReference; name = "Lato-Italic.ttf"; path = "../src/assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				586F03569D20471EB223117D /* SourceSansPro-Light.ttf */,
 				2107C8B7C36940B4AEDFCD08 /* SourceSansPro-Regular.ttf */,
 				46E80D794B374F938FB57AAF /* SourceSansPro-SemiBold.ttf */,
+				0B05795B4C5E42C9A333A295 /* Lato-Italic.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -269,6 +272,7 @@
 				1A6C43393271402A9EA725D9 /* SourceSansPro-Light.ttf in Resources */,
 				8C39A1AEA17D4520A1CEB6D2 /* SourceSansPro-Regular.ttf in Resources */,
 				C0ACE47D078E48B093F61230 /* SourceSansPro-SemiBold.ttf in Resources */,
+				606A4DF8B3E3459F9567949C /* Lato-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,15 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 import React, { FC } from 'react';
 import { useTheme } from '@/hooks';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const UserContainer: FC = () => {
-  const { Fonts } = useTheme();
+  const { Fonts, Layout } = useTheme();
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={[Layout.fill, Layout.center]}>
       <Text style={Fonts.titleSmall}>User Screen</Text>
-    </View>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
-});
 
 export default UserContainer;

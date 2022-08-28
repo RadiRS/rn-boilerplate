@@ -1,15 +1,18 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import React from 'react';
 import { useTheme } from '@/hooks';
 import { Variables } from '@/config/theme/themes/default_dark';
+import { Text } from '@/components/ui';
 
 const HeaderSection = () => {
-  const { Colors, Fonts } = useTheme();
+  const { Colors } = useTheme();
   const extStyle = styles(Colors);
 
   return (
     <View style={extStyle.container}>
-      <Text style={[extStyle.title, Fonts.titleSmall]}>Header Section</Text>
+      <Text variant="title-regular" appearance="alternative">
+        Header Section
+      </Text>
     </View>
   );
 };
@@ -23,9 +26,6 @@ const styles = (color: typeof Variables.Colors) =>
       height: 200,
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    title: {
-      color: color.text,
     },
   });
 

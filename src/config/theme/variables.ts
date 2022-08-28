@@ -14,8 +14,13 @@ export const Colors = {
   inputBackground: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
-  primary: '#E14032',
+  primary: '#3A00E5',
+  secondary: '##EEE5FF',
+  hint: '#AFB1B6',
+  info: '#8AC0FF',
+  disabled: '#9C9C9C',
   success: '#28a745',
+  warning: '#FCCC6F',
   error: '#dc3545',
 };
 
@@ -24,12 +29,26 @@ export const NavigationColors = {
 };
 
 /**
+ * FontFamily
+ */
+export const FontsFamily = {
+  regular: 'SourceSansPro-Regular',
+  bold: 'SourceSansPro-Bold',
+  light: 'SourceSansPro-Light',
+  semiBold: 'SourceSansPro-SemiBold',
+  italic: 'Lato-Italic',
+};
+/**
  * FontSize
  */
 export const FontSize = {
-  small: 16,
-  regular: 20,
-  large: 40,
+  tiny: 12,
+  small: 13,
+  regular: 16,
+  regular2: 14,
+  large: 32,
+  large2: 24,
+  large3: 18,
 };
 
 /**
@@ -51,4 +70,5 @@ export default {
   NavigationColors,
   FontSize,
   MetricsSizes,
+  FontsFamily,
 };
