@@ -16,8 +16,11 @@ export const Colors = {
   text: '#212529',
   primary: '#3A00E5',
   secondary: '##EEE5FF',
-  disabled: '#F1F1F1',
+  hint: '#AFB1B6',
+  info: '#8AC0FF',
+  disabled: '#9C9C9C',
   success: '#28a745',
+  warning: '#FCCC6F',
   error: '#dc3545',
 };
 
@@ -33,6 +36,7 @@ export const FontsFamily = {
   bold: 'SourceSansPro-Bold',
   light: 'SourceSansPro-Light',
   semiBold: 'SourceSansPro-SemiBold',
+  italic: 'Lato-Italic',
 };
 /**
  * FontSize
@@ -42,7 +46,9 @@ export const FontSize = {
   small: 13,
   regular: 16,
   regular2: 14,
-  large: 40,
+  large: 32,
+  large2: 24,
+  large3: 18,
 };
 
 /**

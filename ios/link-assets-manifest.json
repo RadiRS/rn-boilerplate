@@ -2,6 +2,10 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/Lato-Italic.ttf",
+      "sha1": "ebf006602bcfc0467d29735fdf3481bb6121860e"
+    },
+    {
       "path": "src/assets/fonts/SourceSansPro-Bold.ttf",
       "sha1": "11238b0fab1c3d884aec3c8d8e04dfc4ce74ff91"
     },
