@@ -1,8 +1,4 @@
-import {
-  Text as RNText,
-  TextProps as RNTextProps,
-  TextStyle,
-} from 'react-native';
+import { Text as RNText, TextProps as RNTextProps } from 'react-native';
 import React, { FC } from 'react';
 
 import { useTheme } from '@/hooks';
@@ -19,7 +15,6 @@ export interface TextProps extends RNTextProps {
   variant?: TextVariants;
   appearance?: TextAppearance;
   status?: TextStatus;
-  style?: TextStyle;
   type?: TextType;
 }
 

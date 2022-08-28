@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Translations from '@/config/translations';
 
@@ -9,6 +9,7 @@ import { changeTheme, ThemeState } from '@/store/theme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useTheme } from '@/hooks';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Text } from '@/components/ui';
 
 const HomeContainer = () => {
   const dispatch = useDispatch();
