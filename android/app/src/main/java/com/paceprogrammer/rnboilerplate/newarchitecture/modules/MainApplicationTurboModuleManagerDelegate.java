@@ -1,4 +1,4 @@
-package com.reactnativeboilerplate.newarchitecture.modules;
+package com.paceprogrammer.rnboilerplate.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
