@@ -1,4 +1,4 @@
-package com.paceprogrammer.rnboilerplate;
+package com.rnb.rnboilerplate;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

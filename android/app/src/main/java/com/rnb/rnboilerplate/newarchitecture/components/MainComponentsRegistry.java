@@ -1,4 +1,4 @@
-package com.paceprogrammer.rnboilerplate.newarchitecture.components;
+package com.rnb.rnboilerplate.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
