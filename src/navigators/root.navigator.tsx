@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -21,23 +21,21 @@ const RootNavigator = () => {
 
   return (
     <GestureHandlerRootView style={Layout.fill}>
-      <SafeAreaView style={[Layout.fill, { backgroundColor: backgroundColor }]}>
-        <NavigationContainer ref={navigationRef} theme={NavigationTheme}>
-          <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen
-              name="Welcome"
-              component={WelcomeContainer}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Main"
-              component={AppNavigator}
-              options={{ animation: 'none' }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaView>
+      <NavigationContainer ref={navigationRef} theme={NavigationTheme}>
+        <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="Welcome"
+            component={WelcomeContainer}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Main"
+            component={AppNavigator}
+            options={{ animation: 'none' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </GestureHandlerRootView>
   );
 };
