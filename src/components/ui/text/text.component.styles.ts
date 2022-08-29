@@ -45,7 +45,7 @@ const styles = ({
 
   const apr: TextStyle =
     appearance === 'alternative'
-      ? { color: Colors.white }
+      ? { color: Colors.alternative }
       : appearance === 'hint'
       ? { color: Colors.hint }
       : { color: Colors.text };

@@ -14,6 +14,7 @@ export const Colors = {
   inputBackground: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
+  alternative: '#ffffff',
   primary: '#3A00E5',
   secondary: '##EEE5FF',
   hint: '#AFB1B6',
