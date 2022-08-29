@@ -1,4 +1,8 @@
-import { changeTheme, setDefaultTheme, ThemeState } from '@/store/theme';
+import reducer, {
+  changeTheme,
+  setDefaultTheme,
+  ThemeState,
+} from '@/store/theme';
 
 /**
  ** since we are using redux toolkit that type of action is auto generated
@@ -23,22 +27,28 @@ test('should setup change theme action object', () => {
 });
 
 test('should setup change theme action object to dark mode', () => {
-  const action = changeTheme(data);
+  const action = changeTheme({ darkMode: true });
 
   //* `expect.any(String)` => for handle dynamic type that generated from redux toolkit but expect to be a String
   expect(action).toEqual({
     type: expect.any(String),
-    payload: data,
+    payload: { darkMode: true },
   });
 });
 
-test('should setup default theme action object', () => {
-  const action = setDefaultTheme({});
+test('should setup default theme action object when value is undefined', () => {
+  const action = setDefaultTheme({ theme: undefined, darkMode: undefined });
 
   expect(action).toEqual({
     type: expect.any(String),
     payload: {},
   });
+});
+
+test('should return initial theme value', () => {
+  const result = reducer(undefined, { type: undefined });
+
+  expect(result).toEqual({ ...data, darkMode: null });
 });
 
 const data: ThemeState = {
