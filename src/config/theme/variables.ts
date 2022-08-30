@@ -14,12 +14,14 @@ export const Colors = {
   inputBackground: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
+  dark: '#212529',
+  textDisabled: '#9C9C9C',
   alternative: '#ffffff',
   primary: '#3A00E5',
-  secondary: '##EEE5FF',
+  secondary: '#F1F1F1',
   hint: '#AFB1B6',
   info: '#8AC0FF',
-  disabled: '#9C9C9C',
+  disabled: '#DEDEDE',
   success: '#28a745',
   warning: '#FCCC6F',
   error: '#dc3545',
@@ -27,6 +29,7 @@ export const Colors = {
 
 export const NavigationColors = {
   primary: Colors.primary,
+  background: Colors.white,
 };
 
 /**

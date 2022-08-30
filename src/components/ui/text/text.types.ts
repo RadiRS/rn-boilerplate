@@ -5,7 +5,14 @@ export type TextType = LiteralUnion<
 >;
 
 export type TextStatus = LiteralUnion<
-  'basic' | 'primary' | 'success' | 'info' | 'warning' | 'error' | 'disabled'
+  | 'basic'
+  | 'primary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error'
+  | 'disabled'
+  | 'control'
 >;
 
 export type TextAppearance = LiteralUnion<'default' | 'alternative' | 'hint'>;

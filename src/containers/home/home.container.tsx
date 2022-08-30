@@ -1,20 +1,20 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { useTheme } from '@/hooks';
+import { changeTheme, ThemeState } from '@/store/theme';
 import Translations from '@/config/translations';
+import { Button, Text } from '@/components/ui';
 
 import HeaderSection from './header-section.component';
-import { useDispatch } from 'react-redux';
-import { changeTheme, ThemeState } from '@/store/theme';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useTheme } from '@/hooks';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text } from '@/components/ui';
 
 const HomeContainer = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { Common, Fonts, Gutters } = useTheme();
+  const { Fonts, Gutters } = useTheme();
 
   const onPressChangeTheme = ({ theme, darkMode }: Partial<ThemeState>) => {
     dispatch(changeTheme({ theme, darkMode }));
@@ -29,30 +29,26 @@ const HomeContainer = () => {
       </Text>
       <Text style={Fonts.textSmall}>{t('welcome')}</Text>
       <View style={Gutters.regularBMargin} />
-      <TouchableOpacity
+      <Button
         onPress={() => Translations.changeLanguage('id')}
-        style={Common.button.outline}>
-        <Text style={Fonts.textSmall}>Change to Bahasa</Text>
-      </TouchableOpacity>
-      <View style={Gutters.regularBMargin} />
-      <TouchableOpacity
+        appearance="outlined"
+        style={Gutters.regularBMargin}>
+        Change to Bahasa
+      </Button>
+      <Button
         onPress={() => Translations.changeLanguage('en')}
-        style={Common.button.base}>
-        <Text style={Fonts.textSmall}>Change to English</Text>
-      </TouchableOpacity>
-      <View style={Gutters.regularBMargin} />
-      <TouchableOpacity
+        style={Gutters.regularBMargin}>
+        Change to English
+      </Button>
+      <Button
+        appearance="outlined"
         onPress={() => onPressChangeTheme({ darkMode: true })}
-        style={Common.button.outlineRounded}>
-        <Text style={Fonts.textSmall}>Change to Dark Mode</Text>
-      </TouchableOpacity>
-      <View style={Gutters.regularBMargin} />
-      <TouchableOpacity
-        onPress={() => onPressChangeTheme({ darkMode: false })}
-        style={Common.button.rounded}>
-        <Text style={Fonts.textSmall}>Change to Light Mode</Text>
-      </TouchableOpacity>
-      <View style={Gutters.regularBMargin} />
+        style={Gutters.regularBMargin}>
+        Change to Dark Mode
+      </Button>
+      <Button onPress={() => onPressChangeTheme({ darkMode: false })}>
+        Change to Light Mode
+      </Button>
     </SafeAreaView>
   );
 };
