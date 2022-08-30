@@ -3,10 +3,13 @@ import React, { FC } from 'react';
 import { Text } from '@/components/ui';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useTheme } from '@/hooks';
 
 const PreviewContainer: FC = () => {
+  const { Layout, Gutters, Colors } = useTheme();
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={Layout.fill}>
       <ScrollView>
         <View>
           <Text variant="small">Text Small</Text>
@@ -24,7 +27,15 @@ const PreviewContainer: FC = () => {
           <Text status="disabled">Text Status Disabled</Text>
 
           <Text appearance="default">Text Appearance Default</Text>
-          <Text appearance="alternative">Text Appearance Alternative</Text>
+          <View
+            style={[
+              Gutters.regularVPadding,
+              {
+                backgroundColor: Colors.primary,
+              },
+            ]}>
+            <Text appearance="alternative">Text Appearance Alternative</Text>
+          </View>
           <Text appearance="hint">Text Appearance Hint</Text>
 
           <Text type="regular">Text Type Regular</Text>

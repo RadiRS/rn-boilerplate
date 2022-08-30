@@ -1,6 +1,7 @@
 import { useColorScheme } from 'react-native';
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
+
 import {
   Common,
   Fonts,
@@ -9,14 +10,12 @@ import {
   themes,
   DefaultVariables,
 } from '@/config/theme';
-// import { ThemeState } from '@/Store/Theme'
 import {
   ThemeVariables,
   Theme,
   ThemeNavigationTheme,
   ThemeNavigationColors,
 } from '@/config/theme/theme';
-import { useSelector } from 'react-redux';
 import { ThemeState } from '@/store/theme';
 
 export default function () {

@@ -88,7 +88,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/RadiRS/rn-boilerplate/tags).
 
 <p>&nbsp;</p>
 
@@ -96,7 +96,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 - **Radi Rusadi** - _Initial work_ - [RadiRS](https://github.com/RadiRS)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/RadiRS/rn-boilerplate/contributors) who participated in this project.
 
 <p>&nbsp;</p>
 
