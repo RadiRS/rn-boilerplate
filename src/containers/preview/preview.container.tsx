@@ -1,7 +1,6 @@
-import { View } from 'react-native';
 import React, { FC } from 'react';
+import { View, SafeAreaView } from 'react-native';
 import { Text } from '@/components/ui';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useTheme } from '@/hooks';
 
@@ -10,7 +9,12 @@ const PreviewContainer: FC = () => {
 
   return (
     <SafeAreaView style={Layout.fill}>
-      <ScrollView>
+      <ScrollView
+        style={Layout.fill}
+        contentContainerStyle={[
+          Gutters.regularHPadding,
+          Gutters.regularVPadding,
+        ]}>
         <View>
           <Text variant="small">Text Small</Text>
           <Text variant="regular">Text Regular</Text>
@@ -24,12 +28,14 @@ const PreviewContainer: FC = () => {
           <Text status="info">Text Status Info</Text>
           <Text status="warning">Text Status Warning</Text>
           <Text status="error">Text Status Error</Text>
+          <Text status="basic">Text Status Basic</Text>
           <Text status="disabled">Text Status Disabled</Text>
 
           <Text appearance="default">Text Appearance Default</Text>
           <View
             style={[
               Gutters.regularVPadding,
+              Gutters.regularHPadding,
               {
                 backgroundColor: Colors.primary,
               },

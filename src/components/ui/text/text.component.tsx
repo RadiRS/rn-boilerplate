@@ -2,7 +2,7 @@ import { Text as RNText, TextProps as RNTextProps } from 'react-native';
 import React, { FC } from 'react';
 
 import { useTheme } from '@/hooks';
-import styles from './text.component.styles';
+import styles from './text.styles';
 
 import {
   TextAppearance,
@@ -14,7 +14,7 @@ import {
 export interface TextProps extends RNTextProps {
   variant?: TextVariants;
   appearance?: TextAppearance;
-  status?: TextStatus;
+  status?: TextStatus | undefined | null;
   type?: TextType;
 }
 

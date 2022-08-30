@@ -1,7 +1,7 @@
 import { StyleSheet, TextStyle } from 'react-native';
 
 import { ThemeVariables } from '@/config/theme/theme';
-import { TextProps } from '.';
+import { TextProps } from './text.component';
 
 const styles = ({
   theme,
@@ -62,7 +62,11 @@ const styles = ({
       : status === 'error'
       ? { color: Colors.error }
       : status === 'disabled'
-      ? { color: Colors.disabled }
+      ? { color: Colors.textDisabled }
+      : status === 'basic'
+      ? { color: Colors.text }
+      : status === 'control'
+      ? { color: Colors.white }
       : apr;
 
   const typ: TextStyle =
