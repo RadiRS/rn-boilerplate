@@ -1,0 +1,21 @@
+name: Code Quality Check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+
+      - name: Install
+        run: yarn
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test
