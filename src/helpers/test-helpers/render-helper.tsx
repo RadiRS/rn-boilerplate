@@ -1,8 +1,6 @@
 import 'react-native';
 import React, { ReactNode } from 'react';
-// Note: test renderer must be required after react-native.
-import ShallowRender from 'react-test-renderer/shallow';
-import Rendered from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
@@ -10,17 +8,11 @@ import theme from '@/store/theme';
 
 const store = configureStore({ reducer: { theme } });
 
-//* this method help component ro render that need redux with it
-export const shallowRenderWithRedux = (renderedComponent: ReactNode) => {
-  const renderer = ShallowRender.createRenderer();
-
-  return renderer.render(
-    <Provider store={store}>{renderedComponent}</Provider>,
-  );
-};
-
+/**
+ * @ReactTestRenderer
+ * Example how to use react-test-renderer to Snapshoot
+ */
+//this method help component ro render that need redux with it
 export const renderWithRedux = (renderedComponent: ReactNode) => {
-  return Rendered.create(
-    <Provider store={store}>{renderedComponent}</Provider>,
-  );
+  return render(<Provider store={store}>{renderedComponent}</Provider>);
 };

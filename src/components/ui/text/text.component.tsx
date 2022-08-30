@@ -9,7 +9,7 @@ import {
   TextStatus,
   TextVariants,
   TextType,
-} from './text.component.types';
+} from './text.types';
 
 export interface TextProps extends RNTextProps {
   variant?: TextVariants;
