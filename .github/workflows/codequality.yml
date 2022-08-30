@@ -19,8 +19,11 @@ jobs:
         with:
           node-version: '>=14'
 
+      - name: Install
         run: yarn
 
+      - name: Lint
         run: yarn lint
 
+      - name: Test
         run: yarn test
