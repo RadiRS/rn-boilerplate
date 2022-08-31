@@ -24,4 +24,3 @@ jobs:
         uses: actions/download-artifact@v3.0.0
         with:
           name: android artifact
-          path: android/app/build/outputs/apk/release/app-release.apk
