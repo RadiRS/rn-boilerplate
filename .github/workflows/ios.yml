@@ -18,6 +18,5 @@ jobs:
           node-version: 16
       - run: yarn
       - run: yarn pod-install
-
       - name: Build iOS
       - run: xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB build CODE_SIGNING_ALLOWED=NO
