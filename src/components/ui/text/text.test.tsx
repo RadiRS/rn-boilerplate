@@ -5,7 +5,7 @@ import Text from './text.component';
 import { renderWithRedux } from '@/helpers';
 
 describe('<Text />', () => {
-  it('should render Text component correcly', () => {
+  it('should render component correcly', () => {
     const rendered = renderWithRedux(<Text />).toJSON();
 
     expect(rendered).toMatchSnapshot();
