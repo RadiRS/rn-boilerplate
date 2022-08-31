@@ -13,7 +13,7 @@ exports[`<Button /> should render component correcly 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "alignItems": "center",
       "backgroundColor": "#3A00E5",
       "borderRadius": 5,

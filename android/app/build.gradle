@@ -141,6 +141,10 @@ android {
         versionName "0.0.1"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
+        // Detox config
+        testBuildType System.getProperty('testBuildType', 'debug')
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
         if (isNewArchitectureEnabled()) {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
             externalNativeBuild {
@@ -235,6 +239,9 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+
+            // Detox config
+            proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
         }
     }
 
@@ -284,6 +291,15 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+
+    // Detox config
+    androidTestImplementation('com.wix:detox:+')
+    // implementation 'androidx.appcompat:appcompat:1.6.0-alpha05'
+    // androidTestImplementation('com.wix:detox:+') { transitive = true }
+    // androidTestImplementation 'junit:junit:4.12'
+    implementation "androidx.annotation:annotation:1.1.0"
+
 }
 
 if (isNewArchitectureEnabled()) {
