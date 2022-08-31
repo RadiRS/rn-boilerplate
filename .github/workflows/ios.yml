@@ -1,4 +1,4 @@
-name: Android Build
+name: iOS Build
 on:
   push:
     branches:
@@ -10,13 +10,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: yarn
+      - run: yarn pod-install
 
-      - name: Build Android
-      - run: yarn android-build
+      - name: Build iOS
+      - run: xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB build CODE_SIGNING_ALLOWED=NO
