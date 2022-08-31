@@ -4,8 +4,12 @@ on:
     branches:
       - main
 
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  android-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,6 +17,4 @@ jobs:
         with:
           node-version: 16
       - run: yarn
-
-      - name: Build Android apk
       - run: yarn android-build
