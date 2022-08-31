@@ -17,9 +17,8 @@ jobs:
         with:
           node-version: 16
       - run: yarn
-      - name: Build android apk
       - run: yarn android-build
       - name: Download a Build Artifact
-        uses: actions/download-artifact@v3.0.0
+      - uses: actions/download-artifact@v3.0.0
         with:
           name: android artifact
