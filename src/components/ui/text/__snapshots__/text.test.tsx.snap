@@ -3,8 +3,8 @@
 exports[`<Text /> should render component correcly 1`] = `
 <Text
   style={
-    Array [
-      Object {
+    [
+      {
         "color": "#212529",
         "fontFamily": "SourceSansPro-Regular",
         "fontSize": 16,

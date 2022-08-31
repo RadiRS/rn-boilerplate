@@ -22,6 +22,7 @@ const WelcomeContainer = () => {
 
   return (
     <View
+      testID="welcome"
       style={[
         styles.container,
         { backgroundColor: NavigationTheme.colors.card },

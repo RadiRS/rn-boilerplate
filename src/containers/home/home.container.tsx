@@ -41,12 +41,15 @@ const HomeContainer = () => {
         Change to English
       </Button>
       <Button
+        testID="dark-button"
         appearance="outlined"
         onPress={() => onPressChangeTheme({ darkMode: true })}
         style={Gutters.regularBMargin}>
         Change to Dark Mode
       </Button>
-      <Button onPress={() => onPressChangeTheme({ darkMode: false })}>
+      <Button
+        testID="light-button"
+        onPress={() => onPressChangeTheme({ darkMode: false })}>
         Change to Light Mode
       </Button>
     </SafeAreaView>

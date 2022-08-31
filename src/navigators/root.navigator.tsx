@@ -23,7 +23,9 @@ const RootNavigator = () => {
     <GestureHandlerRootView style={Layout.fill}>
       <NavigationContainer ref={navigationRef} theme={NavigationTheme}>
         <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="Welcome">
           <Stack.Screen
             name="Welcome"
             component={WelcomeContainer}
