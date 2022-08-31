@@ -17,5 +17,4 @@ jobs:
         with:
           node-version: 16
       - run: yarn
-      - name: Build Android
       - run: yarn android-build
