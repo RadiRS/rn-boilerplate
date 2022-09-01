@@ -53,8 +53,9 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
+            
       - name: Install Pods
-        run: cd ios && pod install --repo-update && cd ..
+        run: pod install --repo-update
 
       - name: Build IOS App
         run: xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB build CODE_SIGNING_ALLOWED=NO
