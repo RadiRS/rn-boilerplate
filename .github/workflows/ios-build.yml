@@ -44,7 +44,7 @@ jobs:
           bundler-cache: true
 
       - name: Restore Pods cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.8
         with:
           path: |
             ios/Pods
