@@ -1,6 +1,10 @@
 name: Android Build
 
 on:
+  push:
+    branches:
+      - main
+
   release:
     types: [published]
 
@@ -11,16 +15,16 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
-        
+
       - name: Setup Java JDK
         uses: actions/setup-java@v3.4.1
-        
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
         with:
           node-version: 16
-          cache: "yarn"
-          
+          cache: 'yarn'
+
       - name: Cache Gradle Wrapper
         uses: actions/cache@v3.0.8
         with:
@@ -34,7 +38,7 @@ jobs:
           key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-caches-
-      
+
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
 
