@@ -18,6 +18,7 @@
     "asset-link": "npx react-native-asset",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
+    "np": "np --no-publish",
     "postversion": "react-native-version --never-amend"
   },
   "dependencies": {
@@ -67,6 +68,7 @@
     "husky": "^8.0.0",
     "jest": "^29.0.1",
     "metro-react-native-babel-preset": "^0.70.3",
+    "np": "^7.6.2",
     "react-dom": "18.0.0",
     "react-native-rename": "^2.9.0",
     "react-native-version": "^4.0.0",
