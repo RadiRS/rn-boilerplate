@@ -58,7 +58,7 @@ jobs:
         run: pod install --repo-update
 
       - name: Build IOS App
-        run: xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB build CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -workspace RNB.xcworkspace -scheme RNB build CODE_SIGNING_ALLOWED=NO
 
       # - name: Build IOS App
       #   uses: yukiarrr/ios-build-action@v1.4.0
