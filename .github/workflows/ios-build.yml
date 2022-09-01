@@ -54,7 +54,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pods-
       - name: Install Pods
-        run: yarn pod-install
+        run: cd ios && pod install --repo-update && cd ..
 
       - name: Build IOS App
         run: xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB build CODE_SIGNING_ALLOWED=NO
