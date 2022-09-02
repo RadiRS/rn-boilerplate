@@ -8,11 +8,11 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3.0.0
         id: cache
         with:
           path: node_modules
@@ -20,14 +20,14 @@ jobs:
 
       - name: Rebuild detox
         if: steps.cache.outputs.cache-hit == 'true'
-        run: yarn detox-setup
+        run: yarn detox clean-framework-cache && detox build-framework-cache
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install
 
       - name: Cache Pods
-        uses: actions/cache@v1
+        uses: actions/cache@v3.0.0
         id: podcache
         with:
           path: ios/Pods
@@ -40,4 +40,4 @@ jobs:
       - run: brew tap wix/brew
       - run: brew install applesimutils
       - run: yarn detox-build-ios-release
-      - run: yarn detox test -c ios.release --cleanup --debug-synchronization 200
+      - run: yarn detox test -c ios.release --cleanup
