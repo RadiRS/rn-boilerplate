@@ -118,7 +118,7 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  * on project.ext.react, JavaScript will not be compiled to Hermes Bytecode
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
-def enableHermes = project.ext.react.get("enableHermes", false);
+def enableHermes = project.ext.react.get("enableHermes", true);
 
 /**
  * Architectures to build native code for.
@@ -140,10 +140,6 @@ android {
         versionCode 3
         versionName "0.0.4"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
-
-        // Detox config
-        testBuildType System.getProperty('testBuildType', 'debug')
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         if (isNewArchitectureEnabled()) {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
@@ -240,8 +236,6 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
 
-            // Detox config
-            proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
         }
     }
 
@@ -291,15 +285,6 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-
-
-    // Detox config
-    androidTestImplementation('com.wix:detox:+')
-    // implementation 'androidx.appcompat:appcompat:1.6.0-alpha05'
-    // androidTestImplementation('com.wix:detox:+') { transitive = true }
-    // androidTestImplementation 'junit:junit:4.12'
-    implementation "androidx.annotation:annotation:1.1.0"
-
 }
 
 if (isNewArchitectureEnabled()) {

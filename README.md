@@ -2,7 +2,7 @@
 
 ![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Code Quality Check](https://github.com/RadiRS/rn-boilerplate/actions/workflows/codequality.yml/badge.svg)](https://github.com/RadiRS/rn-boilerplate/actions/workflows/codequality.yml)
+[![Continuous Integration](https://github.com/RadiRS/rn-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/RadiRS/rn-boilerplate/actions/workflows/ci.yml)
 [![Android Build](https://github.com/RadiRS/rn-boilerplate/actions/workflows/android-build.yml/badge.svg)](https://github.com/RadiRS/rn-boilerplate/actions/workflows/android-build.yml)
 [![IOS Build](https://github.com/RadiRS/rn-boilerplate/actions/workflows/ios-build.yml/badge.svg)](https://github.com/RadiRS/rn-boilerplate/actions/workflows/ios-build.yml)
 
