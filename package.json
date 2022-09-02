@@ -1,7 +1,17 @@
 {
-  "name": "reactnativeboilerplate",
+  "name": "@radirs/rn-boilerplate",
   "version": "0.0.4",
   "private": true,
+  "author": "Radi Rusadi <radi.rusadi@paceprogrammer.com>",
+  "description": "RadiRS React Native Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RadiRS/rn-boilerplate.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/radirs/rn-boilerplate/issues"
+  },
   "scripts": {
     "android": "react-native run-android",
     "android-build": "yarn android-clean; cd android && ./gradlew app:assembleRelease && cd ..",
