@@ -1,21 +1,25 @@
 name: Continuous Integration
 
 on:
-  [push]
+  push:
+    branches:
+      - main
 
-  # push:
-  #   branches:
-  #     - main
-
-  # pull_request:
-  #   branches:
-  #     - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Check out Git repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
@@ -29,11 +33,16 @@ jobs:
       - run: yarn lint
       - run: yarn test
 
-  e2e-test:
+  e2e-test-ios:
     runs-on: macOS-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Check out Git repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
