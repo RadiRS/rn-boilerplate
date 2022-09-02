@@ -1,5 +1,7 @@
 name: Continuous Integration
 on:
+  [push]
+
   push:
     branches:
       - main
@@ -7,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+
 
 jobs:
   test:
@@ -25,7 +28,7 @@ jobs:
 
       - run: yarn lint
       - run: yarn test
-jobs:
+
   e2e-test:
     runs-on: macOS-latest
 
