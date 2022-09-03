@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Alert, ScrollView, SafeAreaView } from 'react-native';
+import { Alert, ScrollView } from 'react-native';
 
 import { useTheme } from '@/hooks';
 
-import { Button } from '@/components/ui';
+import { Button, SafeArea } from '@/components/ui';
 
 const UserContainer: FC = () => {
   const { Layout, Gutters } = useTheme();
@@ -13,7 +13,7 @@ const UserContainer: FC = () => {
   };
 
   return (
-    <SafeAreaView style={Layout.fill}>
+    <SafeArea>
       <ScrollView
         style={Layout.fill}
         contentContainerStyle={[
@@ -71,7 +71,7 @@ const UserContainer: FC = () => {
           Large Button
         </Button>
       </ScrollView>
-    </SafeAreaView>
+    </SafeArea>
   );
 };
 

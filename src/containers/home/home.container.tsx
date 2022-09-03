@@ -2,12 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useTheme } from '@/hooks';
 import { changeTheme, ThemeState } from '@/store/theme';
 import Translations from '@/config/translations';
-import { Button, Text } from '@/components/ui';
+import { Button, Text, SafeArea } from '@/components/ui';
 
 import HeaderSection from './header-section.component';
 
@@ -21,7 +20,7 @@ const HomeContainer = () => {
   };
 
   return (
-    <SafeAreaView style={[Gutters.regularVPadding, Gutters.regularHPadding]}>
+    <SafeArea padder>
       <HeaderSection />
       <View style={Gutters.regularBMargin} />
       <Text style={Fonts.textRegular}>
@@ -52,7 +51,7 @@ const HomeContainer = () => {
         onPress={() => onPressChangeTheme({ darkMode: false })}>
         Change to Light Mode
       </Button>
-    </SafeAreaView>
+    </SafeArea>
   );
 };
 

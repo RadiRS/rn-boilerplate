@@ -25,7 +25,7 @@ const WelcomeContainer = () => {
       testID="welcome"
       style={[
         styles.container,
-        { backgroundColor: NavigationTheme.colors.card },
+        { backgroundColor: NavigationTheme.colors.background },
       ]}>
       <Image source={AppImage.logo.app} style={styles.img} borderRadius={20} />
     </View>

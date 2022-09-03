@@ -12,6 +12,7 @@ export const Colors = {
   // Example colors:
   transparent: 'rgba(0,0,0,0)',
   inputBackground: '#FFFFFF',
+  background: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
   dark: '#212529',
@@ -29,7 +30,7 @@ export const Colors = {
 
 export const NavigationColors = {
   primary: Colors.primary,
-  background: Colors.white,
+  background: Colors.background,
 };
 
 /**
