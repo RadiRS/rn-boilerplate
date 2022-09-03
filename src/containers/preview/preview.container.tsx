@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { SafeArea, Text } from '@/components/ui';
-import { ScrollView } from 'react-native-gesture-handler';
+import { SafeArea, Text, ScrollView } from '@/components/ui';
 import { useTheme } from '@/hooks';
 
 const PreviewContainer: FC = () => {
