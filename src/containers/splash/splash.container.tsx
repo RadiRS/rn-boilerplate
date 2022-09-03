@@ -1,17 +1,28 @@
-import { View, StyleSheet, Image, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar, Platform } from 'react-native';
 import React, { useEffect } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
+
 import { navigateAndSimpleReset } from '@/navigators/utils';
-import { AppImage } from '@/assets';
 import { useTheme } from '@/hooks';
+import { ThemeVariables } from '@/config/theme/theme';
 
 const SplashContainer = () => {
-  const { Colors } = useTheme();
+  const themes = useTheme();
+  const s = styles(themes);
 
   const init = async () => {
     await new Promise(resolve =>
       setTimeout(() => {
         resolve(true);
       }, 2000),
+    );
+
+    RNBootSplash.hide({ fade: true });
+
+    await new Promise(resolve =>
+      setTimeout(() => {
+        resolve(true);
+      }, 100),
     );
 
     navigateAndSimpleReset('Main');
@@ -22,30 +33,20 @@ const SplashContainer = () => {
   });
 
   return (
-    <View
-      testID="welcome"
-      style={[styles.container, { backgroundColor: Colors.splashBakground }]}>
-      <StatusBar
-        animated
-        barStyle="light-content"
-        backgroundColor={Colors.splashBakground}
-      />
-      <Image source={AppImage.logo.app} style={styles.img} borderRadius={20} />
+    <View testID="welcome" style={s.container}>
+      {Platform.OS === 'ios' && <StatusBar animated barStyle="light-content" />}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  img: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-  },
-});
+const styles = (themes: ThemeVariables) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: themes.Colors.splashBakground,
+    },
+  });
 
 export default SplashContainer;
