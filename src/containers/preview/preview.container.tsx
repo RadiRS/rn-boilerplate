@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
-import { View, SafeAreaView } from 'react-native';
-import { Text } from '@/components/ui';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View } from 'react-native';
+import { SafeArea, Text, ScrollView } from '@/components/ui';
 import { useTheme } from '@/hooks';
 
 const PreviewContainer: FC = () => {
   const { Layout, Gutters, Colors } = useTheme();
 
   return (
-    <SafeAreaView style={Layout.fill}>
+    <SafeArea>
       <ScrollView
         style={Layout.fill}
         contentContainerStyle={[
@@ -54,7 +53,7 @@ const PreviewContainer: FC = () => {
 
         <Text>Loader</Text>
       </ScrollView>
-    </SafeAreaView>
+    </SafeArea>
   );
 };
 

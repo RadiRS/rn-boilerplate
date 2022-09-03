@@ -1,25 +1,27 @@
-import React, { FC } from 'react';
-import { Alert, ScrollView, SafeAreaView } from 'react-native';
+import React, { FC, useRef } from 'react';
+import { Alert, ScrollView as RNScrollView } from 'react-native';
 
 import { useTheme } from '@/hooks';
-
-import { Button } from '@/components/ui';
+import { Button, SafeArea, ScrollView } from '@/components/ui';
 
 const UserContainer: FC = () => {
   const { Layout, Gutters } = useTheme();
+  const ref = useRef<RNScrollView>(null);
+
+  const onPressScroll = () => {
+    ref.current?.scrollToEnd();
+  };
 
   const onPress = () => {
     Alert.alert('Press Event');
   };
 
   return (
-    <SafeAreaView style={Layout.fill}>
-      <ScrollView
-        style={Layout.fill}
-        contentContainerStyle={[
-          Gutters.regularHPadding,
-          Gutters.regularVPadding,
-        ]}>
+    <SafeArea>
+      <ScrollView padder ref={ref} style={Layout.fill}>
+        <Button style={Gutters.regularBMargin} onPress={onPressScroll}>
+          Scroll To Bottom
+        </Button>
         <Button style={Gutters.regularBMargin} onPress={onPress}>
           Regular Button
         </Button>
@@ -71,7 +73,7 @@ const UserContainer: FC = () => {
           Large Button
         </Button>
       </ScrollView>
-    </SafeAreaView>
+    </SafeArea>
   );
 };
 
