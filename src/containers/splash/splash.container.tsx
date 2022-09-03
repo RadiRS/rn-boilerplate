@@ -1,11 +1,12 @@
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, StatusBar } from 'react-native';
 import React, { useEffect } from 'react';
 import { navigateAndSimpleReset } from '@/navigators/utils';
 import { AppImage } from '@/assets';
 import { useTheme } from '@/hooks';
 
-const WelcomeContainer = () => {
-  const { NavigationTheme } = useTheme();
+const SplashContainer = () => {
+  const { Colors } = useTheme();
+
   const init = async () => {
     await new Promise(resolve =>
       setTimeout(() => {
@@ -23,10 +24,12 @@ const WelcomeContainer = () => {
   return (
     <View
       testID="welcome"
-      style={[
-        styles.container,
-        { backgroundColor: NavigationTheme.colors.background },
-      ]}>
+      style={[styles.container, { backgroundColor: Colors.splashBakground }]}>
+      <StatusBar
+        animated
+        barStyle="light-content"
+        backgroundColor={Colors.splashBakground}
+      />
       <Image source={AppImage.logo.app} style={styles.img} borderRadius={20} />
     </View>
   );
@@ -45,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeContainer;
+export default SplashContainer;

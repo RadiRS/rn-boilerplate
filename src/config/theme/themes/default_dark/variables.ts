@@ -5,6 +5,7 @@ const Colors = {
   inputBackground: 'gray',
   alternative: 'black',
   background: '#212529',
+  splashBackground: '#212529',
 };
 
 const NavigationColors = {

@@ -8,7 +8,7 @@ import { useTheme } from '@/hooks';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
-import { WelcomeContainer } from '@/containers';
+import { SplashContainer } from '@/containers';
 import AppNavigator from './app.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,10 +25,10 @@ const RootNavigator = () => {
         <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Welcome">
+          initialRouteName="Splash">
           <Stack.Screen
-            name="Welcome"
-            component={WelcomeContainer}
+            name="Splash"
+            component={SplashContainer}
             options={{ headerShown: false }}
           />
           <Stack.Screen
