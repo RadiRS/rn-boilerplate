@@ -3,25 +3,25 @@
   "runnerConfig": "e2e/config.json",
   "skipLegacyWorkersInjection": true,
   "apps": {
-    "ios.debug": {
+    "ios.dev.debug": {
       "type": "ios.app",
-      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/RNB.app",
-      "build": "xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build"
+      "binaryPath": "ios/build/Build/Products/DebugDev-iphonesimulator/RN Boilerplate Dev.app",
+      "build": "xcodebuild -workspace ios/RNB.xcworkspace -scheme RNBDev -configuration DebugDev -sdk iphonesimulator -derivedDataPath ios/build"
     },
-    "ios.release": {
+    "ios.dev.release": {
       "type": "ios.app",
-      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/RNB.app",
-      "build": "xcodebuild -workspace ios/RNB.xcworkspace -scheme RNB -sdk iphonesimulator -configuration Release -derivedDataPath ios/build -quiet"
+      "binaryPath": "ios/build/Build/Products/ReleaseDev-iphonesimulator/RN Boilerplate Dev.app",
+      "build": "xcodebuild -workspace ios/RNB.xcworkspace -scheme RNBDev -sdk iphonesimulator -configuration ReleaseDev -derivedDataPath ios/build -quiet"
     },
-    "android.debug": {
+    "android.dev.debug": {
       "type": "android.apk",
-      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
-      "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .."
+      "binaryPath": "android/app/build/outputs/apk/dev/debug/app-dev-debug.apk",
+      "build": "cd android && ./gradlew assembleDevDebug assembleAndroidTest -DtestBuildType=debug && cd .."
     },
-    "android.release": {
+    "android.dev.release": {
       "type": "android.apk",
-      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
-      "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd .."
+      "binaryPath": "android/app/build/outputs/apk/dev/release/app-dev-release.apk",
+      "build": "cd android && ./gradlew assembleDevRelease assembleAndroidTest -DtestBuildType=release && cd .."
     }
   },
   "devices": {
@@ -39,21 +39,21 @@
     }
   },
   "configurations": {
-    "ios.debug": {
+    "ios.dev.debug": {
       "device": "simulator",
-      "app": "ios.debug"
+      "app": "ios.dev.debug"
     },
-    "ios.release": {
+    "ios.dev.release": {
       "device": "simulator",
-      "app": "ios.release"
+      "app": "ios.dev.release"
     },
-    "android.debug": {
+    "android.dev.debug": {
       "device": "emulator",
-      "app": "android.debug"
+      "app": "android.dev.debug"
     },
-    "android.release": {
+    "android.dev.release": {
       "device": "emulator",
-      "app": "android.release"
+      "app": "android.dev.release"
     }
   }
 }

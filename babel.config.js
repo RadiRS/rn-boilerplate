@@ -13,6 +13,7 @@ plugins.push(
     },
   ],
   'react-native-reanimated/plugin',
+  'module:react-native-dotenv',
 );
 
 module.exports = {
