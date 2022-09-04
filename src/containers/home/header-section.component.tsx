@@ -1,6 +1,7 @@
-import { View, StyleSheet, NativeModules } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import React from 'react';
 
+import Config from '@/config/env';
 import { useTheme } from '@/hooks';
 import { Text } from '@/components/ui';
 import { ThemeVariables } from '@/config/theme/theme';
@@ -8,7 +9,6 @@ import { ThemeVariables } from '@/config/theme/theme';
 const HeaderSection = () => {
   const themes = useTheme();
   const extStyle = styles(themes);
-  const env = NativeModules.RNConfig.env;
 
   return (
     <View style={extStyle.container}>
@@ -16,7 +16,10 @@ const HeaderSection = () => {
         Header Section
       </Text>
       <Text variant="title-small" appearance="alternative">
-        Environment: {env}
+        Environment: {Config.env}
+      </Text>
+      <Text variant="small" appearance="alternative">
+        API_URL: {Config.apiUrl}
       </Text>
     </View>
   );
