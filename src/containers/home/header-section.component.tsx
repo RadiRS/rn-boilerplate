@@ -1,27 +1,32 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, NativeModules } from 'react-native';
 import React from 'react';
+
 import { useTheme } from '@/hooks';
-import { Variables } from '@/config/theme/themes/default_dark';
 import { Text } from '@/components/ui';
+import { ThemeVariables } from '@/config/theme/theme';
 
 const HeaderSection = () => {
-  const { Colors } = useTheme();
-  const extStyle = styles(Colors);
+  const themes = useTheme();
+  const extStyle = styles(themes);
+  const env = NativeModules.RNConfig.env;
 
   return (
     <View style={extStyle.container}>
       <Text variant="title-regular" appearance="alternative">
         Header Section
       </Text>
+      <Text variant="title-small" appearance="alternative">
+        Environment: {env}
+      </Text>
     </View>
   );
 };
 
-const styles = (color: typeof Variables.Colors) =>
+const styles = (themes: ThemeVariables) =>
   StyleSheet.create({
     container: {
       padding: 20,
-      backgroundColor: color.primary,
+      backgroundColor: themes.Colors.primary,
       borderRadius: 20,
       height: 200,
       justifyContent: 'center',
