@@ -13,7 +13,13 @@
     "url": "https://github.com/radirs/rn-boilerplate/issues"
   },
   "scripts": {
-    "android": "react-native run-android",
+    "android": "react-native run-android --variant=devdebug --appId=com.rnb.rnboilerplate.dev",
+    "android-dev-debug": "react-native run-android --variant=devdebug --appId=com.rnb.rnboilerplate.dev",
+    "android-staging-debug": "react-native run-android --variant=stagdebug --appId=com.rnb.rnboilerplate.stag",
+    "android-production-debug": "react-native run-android --variant=proddebug --appId=com.rnb.rnboilerplate",
+    "android-dev-release": "react-native run-android --variant=devrelease --appId=com.rnb.rnboilerplate.dev",
+    "android-staging-release": "react-native run-android --variant=stagrelease --appId=com.rnb.rnboilerplate.stag",
+    "android-production-release": "react-native run-android --variant=prodrelease --appId=com.rnb.rnboilerplate",
     "android-build": "yarn android-clean; cd android && ./gradlew app:assembleRelease && cd ..",
     "android-build-bundle": "yarn android-clean; cd android && ./gradlew app:bundleRelease && cd ..",
     "android-clean": "cd android && ./gradlew clean && cd ..",
