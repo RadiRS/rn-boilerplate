@@ -1,12 +1,9 @@
-name: Android Build
+name: Android Development Distribution
 
 on:
   push:
     branches:
-      - main
-
-  release:
-    types: [published]
+      - develop
 
 jobs:
   android-build:
@@ -53,9 +50,9 @@ jobs:
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
 
-      - name: Build Android apk
+      - name: Build Android Development apk
         run: |
-          cd android && ./gradlew assembleRelease
+          cd android && ./gradlew assembleDevRelease
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.0
@@ -63,38 +60,18 @@ jobs:
           name: app-dev-release.apk
           path: android/app/build/outputs/apk/dev/release/
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: app-stag-release.apk
-          path: android/app/build/outputs/apk/stag/release/
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: app-prod-release.apk
-          path: android/app/build/outputs/apk/prod/release/
-
-      # - name: Sign App Bundle
-      #   id: sign_app
-      #   uses: r0adkll/sign-android-release@v1
-      #   with:
-      #     releaseDirectory: android/app/build/outputs/apk/release
-      #     signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
-      #     alias: ${{ secrets.ANDROID_ALIAS }}
-      #     keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
-      #     keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
-
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Gakko App Bundle
-      #     path: ${{steps.sign_app.outputs.signedReleaseFile}}
-
-      # - name: upload artifact to Firebase App Distribution
-      #   uses: wzieba/Firebase-Distribution-Github-Action@v1
-      #   with:
-      #     appId: ${{secrets.ANDROID_FIREBASE_APP_ID}}
-      #     token: ${{secrets.ANDROID_FIREBASE_TOKEN}}
-      #     groups: testers
-      #     file: ${{steps.sign_app.outputs.signedReleaseFile}}
+      # - name: Distribute app via Firebase App Distribution
+      #   env:
+      #       firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
+      #       firebaseGroups: ${{ secrets.FIREBASE_GROUPS }}
+      #       firebaseAppId: ${{ secrets.FIREBASE_APP_ID }}
+      #       notes: ${{ github.event.head_commit.message }}
+      #   run: |
+      #     yarn global add firebase-tools
+      #     export PATH="$(yarn global bin):$PATH"
+      #     firebase \
+      #       appdistribution:distribute android/app/build/outputs/apk/dev/release/app-dev-release.apk \
+      #       --app $firebaseAppId \
+      #       --release-notes "$notes" \
+      #       --groups "$firebaseGroups" \
+      #       --token "$firebaseToken"

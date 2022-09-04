@@ -1,12 +1,9 @@
-name: Android Build
+name: Android Staging Distribution
 
 on:
   push:
     branches:
-      - main
-
-  release:
-    types: [published]
+      - staging
 
 jobs:
   android-build:
@@ -53,15 +50,9 @@ jobs:
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
 
-      - name: Build Android apk
+      - name: Build Android Staging apk
         run: |
-          cd android && ./gradlew assembleRelease
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: app-dev-release.apk
-          path: android/app/build/outputs/apk/dev/release/
+          cd android && ./gradlew assembleStagRelease
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.0
@@ -69,32 +60,33 @@ jobs:
           name: app-stag-release.apk
           path: android/app/build/outputs/apk/stag/release/
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: app-prod-release.apk
-          path: android/app/build/outputs/apk/prod/release/
-
+      # - name: Build Android App Bundle
+      #   run: |
+      #     cd android && ./gradlew bundleStagRelease --no-daemon
       # - name: Sign App Bundle
       #   id: sign_app
       #   uses: r0adkll/sign-android-release@v1
       #   with:
-      #     releaseDirectory: android/app/build/outputs/apk/release
+      #     releaseDirectory: android/app/build/outputs/bundle/stag/release/
       #     signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
-      #     alias: ${{ secrets.ANDROID_ALIAS }}
-      #     keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
-      #     keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      #     alias: ${{ secrets.ANDROID_SIGNING_ALIAS }}
+      #     keyStorePassword: ${{ secrets.ANDROID_SIGNING_STORE_PASSWORD }}
+      #     keyPassword: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
 
       # - name: Upload Artifact
       #   uses: actions/upload-artifact@v2
       #   with:
-      #     name: Gakko App Bundle
+      #     name: Signed App Bundle
       #     path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
-      # - name: upload artifact to Firebase App Distribution
-      #   uses: wzieba/Firebase-Distribution-Github-Action@v1
+      # - name: Deploy to Play Store (ALPHA)
+      #   uses: r0adkll/upload-google-play@v1
       #   with:
-      #     appId: ${{secrets.ANDROID_FIREBASE_APP_ID}}
-      #     token: ${{secrets.ANDROID_FIREBASE_TOKEN}}
-      #     groups: testers
-      #     file: ${{steps.sign_app.outputs.signedReleaseFile}}
+      #     serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT }}
+      #     packageName: com.testedapp
+      #     releaseFile: ${{steps.sign_app.outputs.signedReleaseFile}}
+      #     track: alpha
+      #     inAppUpdatePriority: 3
+      #     userFraction: 0.5
+      #     whatsNewDirectory: android/release-notes/
+      # mappingFile: android/app/build/outputs/mapping/release/mapping.txt
