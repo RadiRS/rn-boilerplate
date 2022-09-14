@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "RNB Dev.app"
+               BuildableName = "RN Boilerplate Dev.app"
                BlueprintName = "RNB"
                ReferencedContainer = "container:RNB.xcodeproj">
             </BuildableReference>
@@ -55,14 +55,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RNB Dev.app"
+            BuildableName = "RN Boilerplate Dev.app"
             BlueprintName = "RNB"
             ReferencedContainer = "container:RNB.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "DebugDev"
+      buildConfiguration = "ReleaseDev"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RNB Dev.app"
+            BuildableName = "RN Boilerplate Dev.app"
             BlueprintName = "RNB"
             ReferencedContainer = "container:RNB.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
       buildConfiguration = "DebugDev">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "DebugDev"
+      buildConfiguration = "ReleaseDev"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
