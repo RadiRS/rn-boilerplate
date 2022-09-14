@@ -25,7 +25,9 @@ target 'RNB' do
     # Hermes is now enabled by default. Disable by setting this flag to false.
     # Upcoming versions of React Native may rely on get_default_flags(), but
     # we make it explicit here to aid in the React Native upgrade process.
-    :hermes_enabled => true,
+    # ! hermes on ios should be disabled for now because open debugger can't use is v0.70.0
+    # ! link issue: https://github.com/facebook/react-native/issues/34615 
+    :hermes_enabled => false,
     :fabric_enabled => flags[:fabric_enabled],
     # Enables Flipper.
     #
