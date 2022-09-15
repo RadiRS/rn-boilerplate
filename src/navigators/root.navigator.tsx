@@ -50,7 +50,7 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="MainTab"
         component={AppNavigator}
-        options={{ title: 'Home', headerTitle: 'RN Boilerplate' }}
+        options={{ title: 'RN Boilerplate', headerTitle: 'RN Boilerplate' }}
       />
       <Drawer.Screen
         name="FormInput"
