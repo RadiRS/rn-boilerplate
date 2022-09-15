@@ -8,9 +8,11 @@ import {
   TextStyle,
 } from 'react-native';
 
-import { Text } from '@/components/ui';
 import { useTheme } from '@/hooks';
+import { Text } from '@/components/ui';
 import { ThemeVariables } from '@/config/theme/theme';
+
+import { InputType, InputVariant } from './types';
 
 interface InputProps extends TextInputProps {
   name?: string;
@@ -19,7 +21,8 @@ interface InputProps extends TextInputProps {
   error?: string;
   style?: ViewStyle;
   inputStyle?: TextStyle;
-  type?: 'password' | 'textarea' | 'email' | undefined;
+  type?: InputType;
+  variant?: InputVariant;
 }
 
 const Input = ({
@@ -33,7 +36,7 @@ const Input = ({
   const themes = useTheme();
   const extStyle = styles(themes);
 
-  const textareaType = type === 'textarea' && {
+  const textareaProps = type === 'textarea' && {
     multiline: true,
     numberOfLines: 4,
     style: {
@@ -50,7 +53,7 @@ const Input = ({
         style={[extStyle.input, inputStyle]}
         secureTextEntry={type === 'password'}
         keyboardType={type === 'email' ? 'email-address' : keyboardType}
-        {...textareaType}
+        {...textareaProps}
         {...props}
       />
     </View>
