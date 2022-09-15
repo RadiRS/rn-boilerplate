@@ -14,7 +14,7 @@ const SplashContainer = () => {
     await new Promise(resolve =>
       setTimeout(() => {
         resolve(true);
-      }, 2000),
+      }, 1000),
     );
 
     RNBootSplash.hide({ fade: true });
