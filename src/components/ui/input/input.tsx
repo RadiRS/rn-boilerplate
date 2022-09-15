@@ -12,7 +12,7 @@ import { useTheme } from '@/hooks';
 import { Text } from '@/components/ui';
 import { ThemeVariables } from '@/config/theme/theme';
 
-import { InputType, InputVariant } from './types';
+import { InputTypes, InputVariants } from './types';
 
 interface InputProps extends TextInputProps {
   name?: string;
@@ -21,8 +21,8 @@ interface InputProps extends TextInputProps {
   error?: string;
   style?: ViewStyle;
   inputStyle?: TextStyle;
-  type?: InputType;
-  variant?: InputVariant;
+  type?: InputTypes;
+  variant?: InputVariants;
 }
 
 const Input = ({

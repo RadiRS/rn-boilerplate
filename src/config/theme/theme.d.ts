@@ -9,11 +9,10 @@ export type ThemeVariables = {
   FontsFamily: typeof Variables.FontsFamily;
 };
 
-export type Theme<F, G, L, C> = ThemeVariables & {
+export type Theme<F, G, L> = ThemeVariables & {
   Fonts: F;
   Gutters: G;
   Layout: L;
-  Common: C;
   Variables?: Partial<ThemeVariables>;
 };
 

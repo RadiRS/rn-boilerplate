@@ -5,17 +5,17 @@ import { useTheme } from '@/hooks';
 import styles from './text.styles';
 
 import {
-  TextAppearance,
+  TextAppearances,
   TextStatus,
   TextVariants,
-  TextType,
+  TextTypes,
 } from './text.types';
 
 export interface TextProps extends RNTextProps {
   variant?: TextVariants;
-  appearance?: TextAppearance;
+  appearance?: TextAppearances;
   status?: TextStatus | undefined | null;
-  type?: TextType;
+  type?: TextTypes;
 }
 
 /**

@@ -9,14 +9,14 @@ import {
 
 import { useTheme } from '@/hooks';
 import { Text } from '@/components/ui';
-import { ButtonAppearance, ButtonSize, ButtonStatus } from './button.types';
+import { ButtonAppearances, ButtonSizes, ButtonStatus } from './button.types';
 import styles from './button.styles';
 
 export interface ButtonProps extends TouchableOpacityProps {
   children?: ReactNode;
   status?: ButtonStatus;
-  size?: ButtonSize;
-  appearance?: ButtonAppearance;
+  size?: ButtonSizes;
+  appearance?: ButtonAppearances;
   loading?: boolean | null | undefined;
   disabled?: boolean | null | undefined;
   style?: ViewStyle;

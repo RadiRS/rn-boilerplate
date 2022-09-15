@@ -1,10 +1,6 @@
-export type LiteralUnion<T extends U, U = string> = T | (U & {});
+export type TextTypes = 'bold' | 'light' | 'italic' | 'regular' | 'semi-bold';
 
-export type TextType = LiteralUnion<
-  'bold' | 'light' | 'italic' | 'regular' | 'semi-bold'
->;
-
-export type TextStatus = LiteralUnion<
+export type TextStatus =
   | 'basic'
   | 'primary'
   | 'success'
@@ -12,16 +8,14 @@ export type TextStatus = LiteralUnion<
   | 'warning'
   | 'error'
   | 'disabled'
-  | 'control'
->;
+  | 'control';
 
-export type TextAppearance = LiteralUnion<'default' | 'alternative' | 'hint'>;
+export type TextAppearances = 'default' | 'alternative' | 'hint';
 
-export type TextVariants = LiteralUnion<
+export type TextVariants =
   | 'small'
   | 'regular'
   | 'large'
   | 'title-small'
   | 'title-regular'
-  | 'title-large'
->;
+  | 'title-large';

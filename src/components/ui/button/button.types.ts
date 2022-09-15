@@ -1,9 +1,12 @@
-export type LiteralUnion<T extends U, U = string> = T | (U & {});
+export type ButtonStatus =
+  | 'basic'
+  | 'primary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error'
+  | 'disabled';
 
-export type ButtonStatus = LiteralUnion<
-  'basic' | 'primary' | 'success' | 'info' | 'warning' | 'error' | 'disabled'
->;
+export type ButtonAppearances = 'filled' | 'outlined' | 'ghost';
 
-export type ButtonAppearance = LiteralUnion<'filled' | 'outlined' | 'ghost'>;
-
-export type ButtonSize = LiteralUnion<'tiny' | 'small' | 'regular' | 'large'>;
+export type ButtonSizes = 'tiny' | 'small' | 'regular' | 'large';
