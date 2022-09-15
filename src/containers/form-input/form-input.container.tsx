@@ -1,7 +1,7 @@
 import React from 'react';
-
-import { ScrollView, SafeArea, Text } from '@/components/ui';
 import { StyleSheet } from 'react-native';
+
+import { ScrollView, SafeArea, Input } from '@/components/ui';
 import { ThemeVariables } from '@/config/theme/theme';
 import { useTheme } from '@/hooks';
 
@@ -12,7 +12,16 @@ const FormInputContainer = () => {
   return (
     <SafeArea>
       <ScrollView contentContainerStyle={extStyles.scrollContainer}>
-        <Text>Form Input</Text>
+        <Input
+          label="Name"
+          placeholder="Type your name"
+          style={themes.Gutters.regularBMargin}
+        />
+        <Input
+          label="Password"
+          type="password"
+          placeholder="Type your password"
+        />
       </ScrollView>
     </SafeArea>
   );
