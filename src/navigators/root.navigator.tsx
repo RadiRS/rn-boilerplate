@@ -9,7 +9,7 @@ import { useTheme } from '@/hooks';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
-import { SplashContainer } from '@/containers';
+import { FormInputContainer, SplashContainer } from '@/containers';
 import AppNavigator from './app.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -51,6 +51,11 @@ const DrawerNavigator = () => {
         name="MainTab"
         component={AppNavigator}
         options={{ title: 'Home', headerTitle: 'RN Boilerplate' }}
+      />
+      <Drawer.Screen
+        name="FormInput"
+        component={FormInputContainer}
+        options={{ title: 'Form Input', headerTitle: 'Form Input' }}
       />
     </Drawer.Navigator>
   );

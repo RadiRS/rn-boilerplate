@@ -6,4 +6,5 @@ export type RootStackParamList = {
   Home: undefined;
   User: undefined;
   Preview: undefined;
+  FormInput: undefined;
 };
