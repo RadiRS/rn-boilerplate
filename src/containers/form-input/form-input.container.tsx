@@ -21,6 +21,12 @@ const FormInputContainer = () => {
           label="Password"
           type="password"
           placeholder="Type your password"
+          style={themes.Gutters.regularBMargin}
+        />
+        <Input
+          label="About you"
+          type="textarea"
+          placeholder="Type about your self"
         />
       </ScrollView>
     </SafeArea>

@@ -55,7 +55,7 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="FormInput"
         component={FormInputContainer}
-        options={{ title: 'Form Input', headerTitle: 'Form Input' }}
+        options={{ title: 'Input', headerTitle: 'Input Components' }}
       />
     </Drawer.Navigator>
   );
