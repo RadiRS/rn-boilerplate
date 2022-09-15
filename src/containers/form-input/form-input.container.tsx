@@ -18,6 +18,12 @@ const FormInputContainer = () => {
           style={themes.Gutters.regularBMargin}
         />
         <Input
+          label="Email"
+          type="email"
+          placeholder="Type your email"
+          style={themes.Gutters.regularBMargin}
+        />
+        <Input
           label="Password"
           type="password"
           placeholder="Type your password"

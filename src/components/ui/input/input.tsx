@@ -19,10 +19,17 @@ interface InputProps extends TextInputProps {
   error?: string;
   style?: ViewStyle;
   inputStyle?: TextStyle;
-  type?: 'password' | 'textarea' | undefined;
+  type?: 'password' | 'textarea' | 'email' | undefined;
 }
 
-const Input = ({ style, label, type, inputStyle, ...props }: InputProps) => {
+const Input = ({
+  style,
+  label,
+  type,
+  inputStyle,
+  keyboardType,
+  ...props
+}: InputProps) => {
   const themes = useTheme();
   const extStyle = styles(themes);
 
@@ -42,6 +49,7 @@ const Input = ({ style, label, type, inputStyle, ...props }: InputProps) => {
         autoCapitalize="none"
         style={[extStyle.input, inputStyle]}
         secureTextEntry={type === 'password'}
+        keyboardType={type === 'email' ? 'email-address' : keyboardType}
         {...textareaType}
         {...props}
       />
