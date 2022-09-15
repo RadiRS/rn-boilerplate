@@ -12,7 +12,7 @@ export const Colors = {
   // Example colors:
   transparent: 'rgba(0,0,0,0)',
   background: '#FFFFFF',
-  splashBakground: '#212529',
+  splashBackground: '#212529',
   inputBackground: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
