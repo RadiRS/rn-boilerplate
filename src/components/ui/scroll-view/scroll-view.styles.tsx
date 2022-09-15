@@ -1,4 +1,4 @@
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 import { StyleSheet } from 'react-native';
 
 const styles = (theme: ThemeVariables) =>

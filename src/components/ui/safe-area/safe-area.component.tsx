@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, { FC } from 'react';
 import { useTheme } from '@/hooks';
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 
 interface SafeAreaProps extends ViewProps {
   style?: StyleProp<ViewStyle>;

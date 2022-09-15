@@ -10,7 +10,7 @@ import {
 
 import { useTheme } from '@/hooks';
 import { Text } from '@/components/ui';
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 
 import { InputTypes, InputVariants } from './types';
 

@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { ThemeVariables } from './theme';
+import { ThemeVariables } from '@/types/theme';
 
 /**
- * Generate Styles depending on MetricsSizes vars availabled at ./Theme/Variables
+ * Generate Styles depending on MetricsSizes vars available at ./Theme/Variables
  * Styles are like :
  * <size><direction><op>: {
  *    <op><direction>: <value>

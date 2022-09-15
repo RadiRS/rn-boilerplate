@@ -4,7 +4,7 @@ import RNBootSplash from 'react-native-bootsplash';
 
 import { navigateAndSimpleReset } from '@/navigators/utils';
 import { useTheme } from '@/hooks';
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 
 const SplashContainer = () => {
   const themes = useTheme();

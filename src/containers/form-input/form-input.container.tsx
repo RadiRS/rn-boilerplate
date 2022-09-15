@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { ScrollView, SafeArea, Input } from '@/components/ui';
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 import { useTheme } from '@/hooks';
 
 const FormInputContainer = () => {

@@ -14,7 +14,7 @@ import {
   Theme,
   ThemeNavigationTheme,
   ThemeNavigationColors,
-} from '@/config/theme/theme';
+} from '@/types/theme';
 import { ThemeState } from '@/store/theme';
 
 export default function () {
