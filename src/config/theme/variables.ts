@@ -27,6 +27,7 @@ export const Colors = {
   success: '#28a745',
   warning: '#FCCC6F',
   error: '#dc3545',
+  border: '#AFB1B6',
 };
 
 export const NavigationColors = {

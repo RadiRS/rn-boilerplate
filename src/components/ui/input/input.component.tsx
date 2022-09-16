@@ -31,10 +31,12 @@ const Input = ({
   type,
   inputStyle,
   keyboardType,
+  error,
   ...props
 }: InputProps) => {
   const themes = useTheme();
   const extStyle = styles(themes);
+  const isError = !!error;
 
   const textareaProps = type === 'textarea' && {
     multiline: true,
@@ -45,17 +47,24 @@ const Input = ({
     } as TextStyle,
   };
 
+  const errorStyle = isError && extStyle.error;
+
   return (
     <View style={[extStyle.container, style]}>
       {label && <Text style={themes.Gutters.smallBMargin}>{label}</Text>}
       <TextInput
         autoCapitalize="none"
-        style={[extStyle.input, inputStyle]}
         secureTextEntry={type === 'password'}
         keyboardType={type === 'email' ? 'email-address' : keyboardType}
+        style={[extStyle.input, inputStyle, errorStyle]}
         {...textareaProps}
         {...props}
       />
+      {isError && (
+        <Text status="error" variant="small">
+          {error}
+        </Text>
+      )}
     </View>
   );
 };
@@ -66,7 +75,7 @@ const styles = (themes: ThemeVariables) =>
     input: {
       backgroundColor: themes.Colors.inputBackground,
       borderWidth: 1,
-      borderColor: '#AFB1B6',
+      borderColor: themes.Colors.border,
       padding: themes.MetricsSizes.regular,
       fontSize: themes.FontSize.regular,
       borderRadius: themes.MetricsSizes.border,
@@ -76,6 +85,9 @@ const styles = (themes: ThemeVariables) =>
       paddingBottom: themes.MetricsSizes.regular,
       height: 120,
       textAlignVertical: 'top',
+    },
+    error: {
+      borderColor: themes.Colors.error,
     },
   });
 
