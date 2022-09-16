@@ -1,6 +1,6 @@
 import { StyleSheet, TextStyle } from 'react-native';
 
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 import { TextProps } from './text.component';
 
 const styles = ({

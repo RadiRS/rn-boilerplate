@@ -11,8 +11,8 @@
 export const Colors = {
   // Example colors:
   transparent: 'rgba(0,0,0,0)',
-  background: '#FFFFFF',
-  splashBakground: '#212529',
+  background: '#EFEFF0',
+  splashBackground: '#212529',
   inputBackground: '#FFFFFF',
   white: '#ffffff',
   text: '#212529',
@@ -27,6 +27,7 @@ export const Colors = {
   success: '#28a745',
   warning: '#FCCC6F',
   error: '#dc3545',
+  border: '#AFB1B6',
 };
 
 export const NavigationColors = {
@@ -64,11 +65,13 @@ const tiny = 5; // 10
 const small = tiny * 2; // 10
 const regular = tiny * 3; // 15
 const large = regular * 2; // 30
+const border = 8; // 30
 export const MetricsSizes = {
   tiny,
   small,
   regular,
   large,
+  border,
 };
 
 export default {

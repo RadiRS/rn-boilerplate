@@ -4,7 +4,7 @@ import React from 'react';
 import Config from '@/config/env';
 import { useTheme } from '@/hooks';
 import { Text } from '@/components/ui';
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 
 const HeaderSection = () => {
   const themes = useTheme();

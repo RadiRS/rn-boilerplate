@@ -1,5 +1,5 @@
-import Variables from './variables';
-import { DefaultVariables, Fonts, Gutters, Layout } from './index';
+import Variables from '@/config/theme/variables';
+import { DefaultVariables, Fonts, Gutters, Layout } from '@/config/theme/index';
 
 export type ThemeVariables = {
   Colors: typeof Variables.Colors;
@@ -9,11 +9,10 @@ export type ThemeVariables = {
   FontsFamily: typeof Variables.FontsFamily;
 };
 
-export type Theme<F, G, L, C> = ThemeVariables & {
+export type Theme<F, G, L> = ThemeVariables & {
   Fonts: F;
   Gutters: G;
   Layout: L;
-  Common: C;
   Variables?: Partial<ThemeVariables>;
 };
 

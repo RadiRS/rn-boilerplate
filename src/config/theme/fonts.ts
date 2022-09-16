@@ -2,7 +2,7 @@
  * This file contains all application's style relative to fonts
  */
 import { StyleSheet, TextStyle } from 'react-native';
-import { ThemeVariables } from './theme';
+import { ThemeVariables } from '@/types/theme';
 
 export default function ({ FontSize, Colors, FontsFamily }: ThemeVariables) {
   const base: TextStyle = {

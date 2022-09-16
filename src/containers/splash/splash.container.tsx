@@ -4,7 +4,7 @@ import RNBootSplash from 'react-native-bootsplash';
 
 import { navigateAndSimpleReset } from '@/navigators/utils';
 import { useTheme } from '@/hooks';
-import { ThemeVariables } from '@/config/theme/theme';
+import { ThemeVariables } from '@/types/theme';
 
 const SplashContainer = () => {
   const themes = useTheme();
@@ -14,7 +14,7 @@ const SplashContainer = () => {
     await new Promise(resolve =>
       setTimeout(() => {
         resolve(true);
-      }, 2000),
+      }, 1000),
     );
 
     RNBootSplash.hide({ fade: true });
@@ -25,7 +25,7 @@ const SplashContainer = () => {
       }, 100),
     );
 
-    navigateAndSimpleReset('Main');
+    navigateAndSimpleReset('MainDrawer');
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const styles = (themes: ThemeVariables) =>
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: themes.Colors.splashBakground,
+      backgroundColor: themes.Colors.splashBackground,
     },
   });
 

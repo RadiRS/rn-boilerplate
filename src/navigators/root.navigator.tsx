@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -8,10 +9,11 @@ import { useTheme } from '@/hooks';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
-import { SplashContainer } from '@/containers';
+import { FormInputContainer, SplashContainer } from '@/containers';
 import AppNavigator from './app.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+const Drawer = createDrawerNavigator<RootStackParamList>();
 
 // @refresh reset
 const RootNavigator = () => {
@@ -32,13 +34,30 @@ const RootNavigator = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Main"
-            component={AppNavigator}
+            name="MainDrawer"
+            component={DrawerNavigator}
             options={{ animation: 'none' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
+  );
+};
+
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen
+        name="MainTab"
+        component={AppNavigator}
+        options={{ title: 'RN Boilerplate', headerTitle: 'RN Boilerplate' }}
+      />
+      <Drawer.Screen
+        name="FormInput"
+        component={FormInputContainer}
+        options={{ title: 'Input', headerTitle: 'Input Components' }}
+      />
+    </Drawer.Navigator>
   );
 };
 
