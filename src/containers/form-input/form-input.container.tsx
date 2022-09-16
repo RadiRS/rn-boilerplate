@@ -68,7 +68,11 @@ const FormInputContainer = () => {
           />
         </Form>
       </ScrollView>
-      <View style={themes.Gutters.regularHPadding}>
+      <View
+        style={[
+          themes.Gutters.regularHPadding,
+          themes.Gutters.regularBPadding,
+        ]}>
         <Button onPress={formMethods.handleSubmit(onSubmit)}>Submit</Button>
       </View>
     </SafeArea>
