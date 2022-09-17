@@ -3,10 +3,11 @@ import { StyleSheet, View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { KeyboardAwareScrollView as ScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import { useTheme } from '@/hooks';
 import { ThemeVariables } from '@/types/theme';
-import { ScrollView, SafeArea, Input, Button, Form } from '@/components/ui';
+import { SafeArea, Input, Button, Form } from '@/components/ui';
 
 interface FormValues {
   name: string;
