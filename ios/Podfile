@@ -15,7 +15,7 @@ project 'RNB', {
 
 target 'RNB' do
   config = use_native_modules!
-  debugs =['DebugDev','DebugStag','DebugProd']
+  debugs = ['DebugDev','DebugStag','DebugProd']
 
   # Flags change depending on the env values.
   flags = get_default_flags()
