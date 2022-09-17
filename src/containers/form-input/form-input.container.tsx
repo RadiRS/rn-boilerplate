@@ -44,6 +44,7 @@ const FormInputContainer = () => {
             name="name"
             label="Name"
             placeholder="Type your name"
+            returnKeyType="next"
             style={themes.Gutters.regularBMargin}
           />
           <Input
@@ -51,6 +52,7 @@ const FormInputContainer = () => {
             label="Email"
             type="email"
             placeholder="Type your email"
+            returnKeyType="next"
             style={themes.Gutters.regularBMargin}
           />
           <Input
@@ -58,13 +60,29 @@ const FormInputContainer = () => {
             label="Password"
             type="password"
             placeholder="Type your password"
+            returnKeyType="next"
             style={themes.Gutters.regularBMargin}
           />
           <Input
-            name="about"
-            label="About you"
+            name="address"
+            label="Address"
             type="textarea"
-            placeholder="Type about your self"
+            placeholder="Type about your address"
+            style={themes.Gutters.regularBMargin}
+          />
+          <Input
+            name="phone"
+            label="Phone"
+            keyboardType="number-pad"
+            placeholder="Type about your phone number"
+            returnKeyType="next"
+            style={themes.Gutters.regularBMargin}
+          />
+          <Input
+            name="hobbies"
+            label="Hobbies"
+            placeholder="Type about your hobbies"
+            returnKeyType="done"
           />
         </Form>
       </ScrollView>
