@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { KeyboardAwareScrollView as ScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import { useTheme } from '@/hooks';
 import { ThemeVariables } from '@/types/theme';
-import { SafeArea, Input, Button, Form } from '@/components/ui';
+import { SafeArea, Input, Button, Form, Checkbox } from '@/components/ui';
 import { MasksHelper } from '@/helpers';
 
 interface FormValues {
@@ -16,6 +16,7 @@ interface FormValues {
   password: string;
   about: string;
   phone: string;
+  agreement: boolean;
 }
 
 const schema = yup
@@ -27,6 +28,7 @@ const schema = yup
       .email('Using valid email'),
     password: yup.string().required('Password is required'),
     phone: yup.string().required('Phone is required'),
+    agreement: yup.bool().isTrue(),
   })
   .required();
 
@@ -96,8 +98,31 @@ const FormInputContainer = () => {
             label="Hobbies"
             placeholder="Type about your hobbies"
             returnKeyType="done"
+            style={themes.Gutters.regularBMargin}
           />
         </Form>
+        <Controller
+          name="agreement"
+          control={formMethods.control}
+          defaultValue={false}
+          render={({ field: { name, value }, formState: { errors } }) => {
+            const error = errors[name]?.message;
+
+            const onPress = () => {
+              formMethods.setValue(name, !value);
+              formMethods.trigger('agreement');
+            };
+
+            return (
+              <Checkbox
+                title="Agree with terms and condition"
+                isChecked={value}
+                onPress={onPress}
+                error={error}
+              />
+            );
+          }}
+        />
       </ScrollView>
       <View
         style={[
