@@ -49,6 +49,7 @@ const FormInputContainer = () => {
           <Input
             name="name"
             label="Name"
+            type="text"
             placeholder="Type your name"
             returnKeyType="next"
             style={themes.Gutters.regularBMargin}
@@ -79,6 +80,7 @@ const FormInputContainer = () => {
           <Input
             name="phone"
             label="Phone"
+            type="text"
             keyboardType="number-pad"
             placeholder="Type about your phone number"
             returnKeyType="next"
@@ -96,33 +98,34 @@ const FormInputContainer = () => {
           <Input
             name="hobbies"
             label="Hobbies"
+            type="text"
             placeholder="Type about your hobbies"
             returnKeyType="done"
             style={themes.Gutters.regularBMargin}
           />
+          <Controller
+            name="agreement"
+            control={formMethods.control}
+            defaultValue={false}
+            render={({ field: { name, value }, formState: { errors } }) => {
+              const error = errors[name]?.message;
+
+              const onPress = () => {
+                formMethods.setValue(name, !value);
+                formMethods.trigger('agreement');
+              };
+
+              return (
+                <Checkbox
+                  title="Agree with terms and condition"
+                  isChecked={value}
+                  onPress={onPress}
+                  error={error}
+                />
+              );
+            }}
+          />
         </Form>
-        <Controller
-          name="agreement"
-          control={formMethods.control}
-          defaultValue={false}
-          render={({ field: { name, value }, formState: { errors } }) => {
-            const error = errors[name]?.message;
-
-            const onPress = () => {
-              formMethods.setValue(name, !value);
-              formMethods.trigger('agreement');
-            };
-
-            return (
-              <Checkbox
-                title="Agree with terms and condition"
-                isChecked={value}
-                onPress={onPress}
-                error={error}
-              />
-            );
-          }}
-        />
       </ScrollView>
       <View
         style={[

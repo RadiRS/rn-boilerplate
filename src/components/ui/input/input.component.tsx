@@ -14,7 +14,7 @@ const Input = forwardRef(
     {
       style,
       label,
-      type,
+      type = 'text',
       inputStyle,
       keyboardType,
       error,

@@ -3,6 +3,7 @@ import { TextInput } from 'react-native';
 import { Controller, Control, FieldValues } from 'react-hook-form';
 
 import { Input } from '@/components/ui';
+import { InputTypes, isOfTypeInput } from '@/components/ui/input/types';
 
 interface ControlMap {
   [key: string]: FieldValues | undefined;
@@ -21,8 +22,10 @@ const Form = ({ children, control }: FormProps) => {
   return (
     <>
       {listChildren.map((child, i) => {
+        const type: InputTypes = child.props.type;
         const isHaveName = !!child.props.name;
-        const isTextarea = child.props.type === 'textarea';
+        const isTextarea = type === 'textarea';
+        const isInput = isOfTypeInput(type);
 
         const initRef = (e: TextInput) => {
           refInputs.current[i] = e;
@@ -38,7 +41,7 @@ const Form = ({ children, control }: FormProps) => {
           refNextInput ? refNextInput.focus() : refCurrentInput.blur();
         };
 
-        return isHaveName ? (
+        return isHaveName && isInput ? (
           <Controller
             key={child.props.name}
             name={child.props.name}
