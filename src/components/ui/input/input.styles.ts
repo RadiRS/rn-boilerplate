@@ -21,6 +21,9 @@ const styles = (themes: ThemeVariables) =>
     error: {
       borderColor: themes.Colors.error,
     },
+    errorText: {
+      marginTop: themes.MetricsSizes.tiny,
+    },
   });
 
 export default styles;

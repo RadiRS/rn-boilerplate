@@ -8,12 +8,14 @@ import { KeyboardAwareScrollView as ScrollView } from 'react-native-keyboard-awa
 import { useTheme } from '@/hooks';
 import { ThemeVariables } from '@/types/theme';
 import { SafeArea, Input, Button, Form } from '@/components/ui';
+import { MasksHelper } from '@/helpers';
 
 interface FormValues {
   name: string;
   email: string;
   password: string;
   about: string;
+  phone: string;
 }
 
 const schema = yup
@@ -24,6 +26,7 @@ const schema = yup
       .required('Email is required')
       .email('Using valid email'),
     password: yup.string().required('Password is required'),
+    phone: yup.string().required('Phone is required'),
   })
   .required();
 
@@ -76,6 +79,15 @@ const FormInputContainer = () => {
             label="Phone"
             keyboardType="number-pad"
             placeholder="Type about your phone number"
+            returnKeyType="next"
+            mask={MasksHelper.ID_PHONE}
+            style={themes.Gutters.regularBMargin}
+          />
+          <Input
+            name="salary"
+            type="currency"
+            label="Salary"
+            placeholder="Type about your expected salary"
             returnKeyType="next"
             style={themes.Gutters.regularBMargin}
           />

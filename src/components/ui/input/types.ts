@@ -1,7 +1,8 @@
-import { LegacyRef } from 'react';
+import { Ref } from 'react';
 import { TextInput, TextInputProps, TextStyle, ViewStyle } from 'react-native';
+import { Mask } from 'react-native-mask-input';
 
-export type InputTypes = 'password' | 'textarea' | 'email';
+export type InputTypes = 'password' | 'textarea' | 'email' | 'currency';
 
 export type InputVariants =
   | 'top-label'
@@ -18,5 +19,6 @@ export interface InputProps extends TextInputProps {
   inputStyle?: TextStyle;
   type?: InputTypes;
   variant?: InputVariants;
-  ref?: LegacyRef<TextInput>;
+  ref?: Ref<TextInput>;
+  mask?: Mask;
 }
