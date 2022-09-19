@@ -2,11 +2,11 @@ import React from 'react';
 import {
   ButtonPreviewContainer,
   FlatListPreviewContainer,
+  HomeContainer,
   InputPreviewContainer,
   TextPreviewContainer,
 } from '@/containers';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import AppNavigator from './app.navigator';
 import { RootStackParamList } from './types';
 
 const Drawer = createDrawerNavigator<RootStackParamList>();
@@ -15,8 +15,8 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator>
       <Drawer.Screen
-        name="MainTab"
-        component={AppNavigator}
+        name="Home"
+        component={HomeContainer}
         options={{ title: 'RN Boilerplate', headerTitle: 'RN Boilerplate' }}
       />
       <Drawer.Screen

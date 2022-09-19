@@ -1,10 +1,14 @@
 export type RootStackParamList = {
+  HomeStack: undefined;
+  PreviewStack: undefined;
+  UserStack: undefined;
   Welcome: undefined;
   Splash: undefined;
-  MainTab: undefined;
+  AppNavigator: undefined;
   MainDrawer: undefined;
   Home: undefined;
   User: undefined;
+  Authentication: undefined;
   Preview: undefined;
   InputPreviewContainer: undefined;
   TextPreviewContainer: undefined;

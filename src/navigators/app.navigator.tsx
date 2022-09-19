@@ -3,9 +3,11 @@ import {
   createBottomTabNavigator,
   BottomTabNavigationOptions,
 } from '@react-navigation/bottom-tabs';
-import { HomeContainer, PreviewContainer, UserContainer } from '@/containers';
+import { PreviewContainer, UserContainer } from '@/containers';
+import DrawerNavigator from './drawer.navigator';
+import { RootStackParamList } from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 // @refresh reset
 const AppNavigator = () => {
@@ -16,14 +18,22 @@ const AppNavigator = () => {
   };
 
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeContainer} options={options} />
+    <Tab.Navigator screenOptions={options}>
       <Tab.Screen
-        name="Preview"
-        component={PreviewContainer}
-        options={options}
+        name="HomeStack"
+        component={DrawerNavigator}
+        options={{ title: 'Home' }}
       />
-      <Tab.Screen name="User" component={UserContainer} options={options} />
+      <Tab.Screen
+        name="PreviewStack"
+        component={PreviewContainer}
+        options={{ title: 'Preview' }}
+      />
+      <Tab.Screen
+        name="UserStack"
+        component={UserContainer}
+        options={{ title: 'User' }}
+      />
     </Tab.Navigator>
   );
 };
