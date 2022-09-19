@@ -6,5 +6,8 @@ export type RootStackParamList = {
   Home: undefined;
   User: undefined;
   Preview: undefined;
-  FormInput: undefined;
+  InputPreviewContainer: undefined;
+  TextPreviewContainer: undefined;
+  ButtonPreviewContainer: undefined;
+  FlatListPreviewContainer: undefined;
 };

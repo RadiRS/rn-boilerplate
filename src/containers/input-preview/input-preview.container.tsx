@@ -32,7 +32,7 @@ const schema = yup
   })
   .required();
 
-const FormInputContainer = () => {
+const InputPreviewContainer = () => {
   const themes = useTheme();
   const extStyles = styles(themes);
   const formMethods = useForm<FormValues>({ resolver: yupResolver(schema) });
@@ -147,4 +147,4 @@ const styles = (themes: ThemeVariables) =>
     },
   });
 
-export default FormInputContainer;
+export default InputPreviewContainer;

@@ -13,11 +13,14 @@ interface FlatListProps<Item = any> extends RNFlatListProps<Item> {
 const FlatList = forwardRef((props: FlatListProps, ref: Ref<RNFlatList>) => {
   const { refreshing = false, onRefresh, ...otherProps } = props;
 
+  const keyExtractor = (_: any, index: number) => index.toString();
+
   return (
     <RNFlatList
       ref={ref}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
+      keyExtractor={keyExtractor}
       refreshControl={
         onRefresh ? (
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
