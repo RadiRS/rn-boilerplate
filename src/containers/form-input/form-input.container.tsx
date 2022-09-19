@@ -44,7 +44,9 @@ const FormInputContainer = () => {
 
   return (
     <SafeArea>
-      <ScrollView contentContainerStyle={extStyles.scrollContainer}>
+      <ScrollView
+        contentContainerStyle={extStyles.scrollContainer}
+        showsVerticalScrollIndicator={false}>
         <Form {...formMethods}>
           <Input
             name="name"

@@ -2,12 +2,12 @@ import React, { forwardRef, Ref } from 'react';
 import { View, TextStyle, TextInput } from 'react-native';
 import MaskInput from 'react-native-mask-input';
 
+import { MasksHelper } from '@/helpers';
 import { useTheme } from '@/hooks';
 import { Text } from '@/components/ui';
 
-import styles from './input.styles';
 import { InputProps } from './types';
-import { MasksHelper } from '@/helpers';
+import styles from './input.styles';
 
 const Input = forwardRef(
   (
