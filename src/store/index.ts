@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import {
   persistReducer,
   persistStore,
@@ -14,9 +15,11 @@ import {
 
 import { api } from '@/services/api';
 import theme from './theme';
+import auth from './auth/authSlice';
 
 const reducers = combineReducers({
   theme,
+  auth,
   [api.reducerPath]: api.reducer,
 });
 
@@ -51,3 +54,10 @@ const persistor = persistStore(store);
 setupListeners(store.dispatch);
 
 export { store, persistor };
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
