@@ -44,16 +44,18 @@ const AuthenticationContainer = () => {
   };
 
   const loginRequest = async (data: any) => {
-    // eslint-disable-next-line no-console
-    console.log('data', data);
-
     try {
       const params = {
-        username: data.username,
-        password: data.password,
+        user: data.username,
+        pwd: data.password,
       };
 
-      const userData = await login(params).unwrap();
+      const res = await login(params).unwrap();
+      const userData = {
+        token: res.accessToken,
+        user: params,
+      };
+
       dispatch(setCredentials(userData));
       navigation.goBack();
     } catch (e) {
