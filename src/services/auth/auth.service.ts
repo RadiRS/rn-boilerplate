@@ -11,6 +11,16 @@ export const postLogin = (builder: EndpointBuilder<any, any, any>) =>
     }),
   });
 
+export const postRegister = (builder: EndpointBuilder<any, any, any>) =>
+  builder.mutation<AccessToken, Credential>({
+    query: (credentials: Credential) => ({
+      url: '/register',
+      method: 'POST',
+      body: credentials,
+      credentials: 'include',
+    }),
+  });
+
 export const getLogout = (builder: EndpointBuilder<any, any, any>) =>
   builder.query<any, void>({
     query: () => ({

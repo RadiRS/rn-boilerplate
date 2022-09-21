@@ -7,7 +7,11 @@ import * as yup from 'yup';
 
 import { useAppDispatch } from '@/store';
 import { setCredentials, AuthState } from '@/store/auth';
-import { usePostLoginMutation, Credential } from '@/services/auth';
+import {
+  usePostLoginMutation,
+  usePostRegisterMutation,
+  Credential,
+} from '@/services/auth';
 
 import { useTheme } from '@/hooks';
 import { SafeArea, Input, Button, Text, Form } from '@/components/ui';
@@ -18,6 +22,7 @@ const AuthenticationContainer = () => {
   const dispatch = useAppDispatch();
   const [isLogin, setIsLogin] = useState(true);
 
+  const [postRegisterRequest] = usePostRegisterMutation();
   const [postLoginRequest, { isLoading, isError, error }] =
     usePostLoginMutation();
 
@@ -31,25 +36,16 @@ const AuthenticationContainer = () => {
 
   const formMethods = useForm({ resolver: yupResolver(schema) });
 
-  const onPressSubmit = (data: any) => {
-    if (isLogin) {
-      loginRequest(data);
-    } else {
-      registerRequest(data);
-    }
-  };
-
-  const onPressToggle = () => {
-    formMethods.reset();
-    setIsLogin(!isLogin);
-  };
-
-  const loginRequest = async (data: any) => {
+  const onPressSubmit = async (data: any) => {
     try {
       const params: Credential = {
         user: data.username,
         pwd: data.password,
       };
+
+      if (!isLogin) {
+        await postRegisterRequest(params).unwrap();
+      }
 
       const res = await postLoginRequest(params).unwrap();
 
@@ -66,9 +62,9 @@ const AuthenticationContainer = () => {
     }
   };
 
-  const registerRequest = async (data: any) => {
-    // eslint-disable-next-line no-console
-    console.log('data', data);
+  const onPressToggle = () => {
+    formMethods.reset();
+    setIsLogin(!isLogin);
   };
 
   return (
