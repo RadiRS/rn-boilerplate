@@ -1,28 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '..';
 
-interface AuthState {
+export interface AuthState {
   user: object | null;
-  token: string | null;
+  accessToken: string | null;
 }
 
 const initialState: AuthState = {
   user: null,
-  token: null,
+  accessToken: null,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setCredentials: (state, action) => {
-      const { user, token } = action.payload;
+    setCredentials: (state, action: PayloadAction<AuthState>) => {
+      const { user, accessToken } = action.payload;
       state.user = user;
-      state.token = token;
+      state.accessToken = accessToken;
     },
     logout: state => {
       state.user = null;
-      state.token = null;
+      state.accessToken = null;
     },
   },
 });
@@ -30,6 +30,6 @@ const authSlice = createSlice({
 export const { setCredentials, logout } = authSlice.actions;
 
 export const selectCurrentUser = (state: RootState) => state.auth.user;
-export const selectCurrentToken = (state: RootState) => state.auth.token;
+export const selectCurrentToken = (state: RootState) => state.auth.accessToken;
 
 export default authSlice.reducer;

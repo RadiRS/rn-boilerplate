@@ -9,10 +9,15 @@ import {
 import { navigate } from '@/navigators/utils';
 import { useTheme } from '@/hooks';
 import { Button, SafeArea, Text } from '@/components/ui';
+import { View } from 'react-native';
+import ListUserSection from './list-users.section';
+import { useLazyLogoutRequestQuery } from '@/services/modules/auth/auth.service';
 
 const UserContainer = () => {
   const dispatch = useAppDispatch();
+  const [logoutRequest, { isLoading }] = useLazyLogoutRequestQuery();
   const { Layout, Gutters } = useTheme();
+
   const user = useAppSelector(selectCurrentUser);
   const token = useAppSelector(selectCurrentToken);
 
@@ -22,18 +27,36 @@ const UserContainer = () => {
       return;
     }
 
-    dispatch(logout());
+    handleLogoutRequest();
+  };
+
+  const handleLogoutRequest = async () => {
+    try {
+      logoutRequest();
+
+      dispatch(logout());
+    } catch (error) {
+      dispatch(logout());
+    }
   };
 
   return (
     <SafeArea padder style={Layout.center}>
-      <Text style={Gutters.regularBMargin}>
-        {user ? `User: ${JSON.stringify(user)} ` : 'No User'}
-      </Text>
-      <Text style={Gutters.regularBMargin}>
-        {token ? `Token: ${token.slice(0, 9)}...` : 'No Token'}
-      </Text>
-      <Button onPress={onPress}>{token ? 'Logout' : 'Login'}</Button>
+      <View style={[Gutters.largeBMargin, Layout.fullWidth]}>
+        <Text style={Gutters.regularBMargin}>
+          {user ? `Current User: ${JSON.stringify(user)} ` : 'No User'}
+        </Text>
+        <Text>{token ? `Token: ${token.slice(0, 9)}...` : 'No Token'}</Text>
+        <Button
+          loading={isLoading}
+          onPress={onPress}
+          style={Gutters.regularTMargin}>
+          {token ? 'Logout' : 'Login'}
+        </Button>
+      </View>
+      <View style={Layout.fullWidth}>
+        <ListUserSection />
+      </View>
     </SafeArea>
   );
 };

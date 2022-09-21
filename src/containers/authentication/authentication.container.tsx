@@ -52,7 +52,7 @@ const AuthenticationContainer = () => {
 
       const res = await login(params).unwrap();
       const userData = {
-        token: res.accessToken,
+        accessToken: res.accessToken,
         user: params,
       };
 

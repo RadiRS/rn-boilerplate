@@ -8,15 +8,15 @@ import {
 } from '@reduxjs/toolkit/query/react';
 
 import { RootState } from '@/store/index';
-import { logout, setCredentials } from '@/store/auth/authSlice';
+import { logout, setCredentials, AuthState } from '@/store/auth/authSlice';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: Config.API_URL,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as RootState).auth.token;
-    if (token) {
-      headers.set('authorization', `Bearer ${token}`);
+    const accessToken = (getState() as RootState).auth.accessToken;
+    if (accessToken) {
+      headers.set('authorization', `Bearer ${accessToken}`);
     }
     return headers;
   },
@@ -29,29 +29,34 @@ const baseQueryWithInterceptor: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
 
-  if (result.error && result.error.status === 403) {
-    // eslint-disable-next-line no-console
-    console.log('sender refresh token');
+  // Forbidden
+  if (result.error && result.meta?.response?.status === 403) {
     // send refresh token to get new access token
-    const refreshResult = await baseQuery('/refresh', api, extraOptions);
-    // eslint-disable-next-line no-console
-    console.info('refreshResult', refreshResult);
+    const refreshResponse = await baseQuery('/refresh', api, extraOptions);
+    const data = refreshResponse.data as { accessToken: string } | null;
 
-    if (refreshResult.data) {
+    if (data) {
+      // store the new token and user data
       const user = (api.getState() as RootState).auth.user;
-      // store the new token
-      api.dispatch(setCredentials({ ...refreshResult.data, user }));
+      const authState = {
+        user,
+        accessToken: data.accessToken,
+      } as AuthState;
+
+      api.dispatch(setCredentials(authState));
+
       // retry the original query with new access token
       result = await baseQuery(args, api, extraOptions);
     } else {
+      await baseQuery('/logout', api, extraOptions);
       api.dispatch(logout());
-      // eslint-disable-next-line no-console
-      console.error('user logout');
     }
   }
 
+  // Unauthorized
   if (result.error && result.error.status === 401) {
   }
+
   return result;
 };
 
