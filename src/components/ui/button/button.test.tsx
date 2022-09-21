@@ -1,12 +1,12 @@
 import 'react-native';
 import React from 'react';
-
-import { Text, Button } from '@/components/ui';
-import { renderWithRedux } from '@/helpers';
 import { fireEvent } from '@testing-library/react-native';
 
+import { renderWithRedux } from '@/helpers';
+import { Text, Button } from '@/components/ui';
+
 describe('<Button />', () => {
-  it('should render component correcly', () => {
+  it('should render component correctly', () => {
     const rendered = renderWithRedux(<Button />).toJSON();
 
     expect(rendered).toMatchSnapshot();

@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistReducer,
   persistStore,
@@ -14,14 +14,7 @@ import {
 } from 'redux-persist';
 
 import { api } from '@/services/api';
-import theme from './theme';
-import auth from './auth/authSlice';
-
-const reducers = combineReducers({
-  theme,
-  auth,
-  [api.reducerPath]: api.reducer,
-});
+import { reducers } from './root-reducers';
 
 const persistConfig = {
   key: 'root',

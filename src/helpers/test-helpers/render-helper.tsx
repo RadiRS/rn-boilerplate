@@ -4,9 +4,9 @@ import { render } from '@testing-library/react-native';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
-import theme from '@/store/theme';
+import { themeReducer } from '@/store/theme';
 
-const store = configureStore({ reducer: { theme } });
+const store = configureStore({ reducer: { theme: themeReducer } });
 
 /**
  * @ReactTestRenderer

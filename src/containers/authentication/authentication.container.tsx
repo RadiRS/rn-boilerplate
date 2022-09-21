@@ -6,8 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import * as yup from 'yup';
 
 import { useAppDispatch } from '@/store';
-import { setCredentials } from '@/store/auth/authSlice';
-import { useLoginMutation } from '@/services/modules/auth/auth.service';
+import { setCredentials, AuthState } from '@/store/auth';
+import { usePostLoginMutation, Credential } from '@/services/auth';
 
 import { useTheme } from '@/hooks';
 import { SafeArea, Input, Button, Text, Form } from '@/components/ui';
@@ -18,7 +18,8 @@ const AuthenticationContainer = () => {
   const dispatch = useAppDispatch();
   const [isLogin, setIsLogin] = useState(true);
 
-  const [login, { isLoading, isError, error }] = useLoginMutation();
+  const [postLoginRequest, { isLoading, isError, error }] =
+    usePostLoginMutation();
 
   const schema = yup
     .object({
@@ -45,15 +46,16 @@ const AuthenticationContainer = () => {
 
   const loginRequest = async (data: any) => {
     try {
-      const params = {
+      const params: Credential = {
         user: data.username,
         pwd: data.password,
       };
 
-      const res = await login(params).unwrap();
-      const userData = {
-        accessToken: res.accessToken,
+      const res = await postLoginRequest(params).unwrap();
+
+      const userData: AuthState = {
         user: params,
+        accessToken: res.accessToken,
       };
 
       dispatch(setCredentials(userData));

@@ -1,10 +1,10 @@
 import { View } from 'react-native';
 import React from 'react';
 
-import { Button, Text } from '@/components/ui';
+import { useGetUsersQuery } from '@/services/users';
 
-import { useGetUsersQuery } from '@/services/modules/users/user.service';
 import { useTheme } from '@/hooks';
+import { Button, Text } from '@/components/ui';
 
 const ListUserSection = () => {
   const { Gutters } = useTheme();

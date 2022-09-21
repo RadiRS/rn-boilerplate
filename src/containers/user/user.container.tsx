@@ -4,18 +4,18 @@ import { useAppSelector, useAppDispatch } from '@/store';
 import {
   selectCurrentUser,
   selectCurrentToken,
-  logout,
-} from '@/store/auth/authSlice';
+  clearCredentials,
+} from '@/store/auth';
 import { navigate } from '@/navigators/utils';
 import { useTheme } from '@/hooks';
 import { Button, SafeArea, Text } from '@/components/ui';
 import { View } from 'react-native';
 import ListUserSection from './list-users.section';
-import { useLazyLogoutRequestQuery } from '@/services/modules/auth/auth.service';
+import { useLazyGetLogoutQuery } from '@/services/auth';
 
 const UserContainer = () => {
   const dispatch = useAppDispatch();
-  const [logoutRequest, { isLoading }] = useLazyLogoutRequestQuery();
+  const [logoutRequest, { isLoading }] = useLazyGetLogoutQuery();
   const { Layout, Gutters } = useTheme();
 
   const user = useAppSelector(selectCurrentUser);
@@ -34,9 +34,9 @@ const UserContainer = () => {
     try {
       logoutRequest();
 
-      dispatch(logout());
+      dispatch(clearCredentials());
     } catch (error) {
-      dispatch(logout());
+      dispatch(clearCredentials());
     }
   };
 
