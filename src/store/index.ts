@@ -1,9 +1,7 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
-  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -14,18 +12,10 @@ import {
 } from 'redux-persist';
 
 import { api } from '@/services/api';
-import { reducers } from './root-reducers';
-
-const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
-  whitelist: ['theme', 'auth'],
-};
-
-const persistedReducer = persistReducer(persistConfig, reducers);
+import rootReducers from './root-reducers';
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducers,
   middleware: getDefaultMiddleware => {
     const middlewares = getDefaultMiddleware({
       serializableCheck: {
