@@ -1,7 +1,8 @@
-import reducer, {
+import {
   changeTheme,
   setDefaultTheme,
   ThemeState,
+  themeReducer,
 } from '@/store/theme';
 
 /**
@@ -47,19 +48,19 @@ test('should setup default theme action object when value is undefined', () => {
 
 //* reducer test
 test('should set initial theme value', () => {
-  const result = reducer(undefined, { type: undefined });
+  const result = themeReducer(undefined, { type: undefined });
 
   expect(result).toEqual({ ...data, darkMode: null });
 });
 
-test('should set darkmode to true', () => {
-  const result = reducer(data, changeTheme({ darkMode: true }));
+test('should set darkMode to true', () => {
+  const result = themeReducer(data, changeTheme({ darkMode: true }));
 
   expect(result).toEqual({ ...data, darkMode: true });
 });
 
-test('should set darkmode to false', () => {
-  const result = reducer(data, changeTheme({ darkMode: false }));
+test('should set darkMode to false', () => {
+  const result = themeReducer(data, changeTheme({ darkMode: false }));
 
   expect(result).toEqual({ ...data, darkMode: false });
 });

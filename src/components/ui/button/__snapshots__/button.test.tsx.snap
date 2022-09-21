@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> should render component correcly 1`] = `
+exports[`<Button /> should render component correctly 1`] = `
 <View
   accessible={true}
   collapsable={false}

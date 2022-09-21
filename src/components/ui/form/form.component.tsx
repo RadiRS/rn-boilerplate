@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, View, ViewStyle } from 'react-native';
 import { Controller, Control, FieldValues } from 'react-hook-form';
 
 import { Input } from '@/components/ui';
@@ -11,16 +11,17 @@ interface ControlMap {
 
 interface FormProps {
   control: ControlMap;
+  style?: ViewStyle;
   children: JSX.Element | JSX.Element[];
 }
 
-const Form = ({ children, control }: FormProps) => {
+const Form = ({ children, control, style }: FormProps) => {
   const refInputs = useRef<TextInput[]>([]);
   const isChildArray = Array.isArray(children);
   const listChildren = isChildArray ? [...children] : [children];
 
   return (
-    <>
+    <View style={style}>
       {listChildren.map((child, i) => {
         const type: InputTypes = child.props.type;
         const isHaveName = !!child.props.name;
@@ -65,7 +66,7 @@ const Form = ({ children, control }: FormProps) => {
           child
         );
       })}
-    </>
+    </View>
   );
 };
 

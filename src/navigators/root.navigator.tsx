@@ -5,11 +5,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { useTheme } from '@/hooks';
-import { SplashContainer } from '@/containers';
+import { AuthenticationContainer, SplashContainer } from '@/containers';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
-import DrawerNavigator from './drawer.navigator';
+import AppNavigator from './app.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -32,9 +32,13 @@ const RootNavigator = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="MainDrawer"
-            component={DrawerNavigator}
+            name="AppNavigator"
+            component={AppNavigator}
             options={{ animation: 'none' }}
+          />
+          <Stack.Screen
+            name="Authentication"
+            component={AuthenticationContainer}
           />
         </Stack.Navigator>
       </NavigationContainer>

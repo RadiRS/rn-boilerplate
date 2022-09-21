@@ -25,7 +25,7 @@ const SplashContainer = () => {
       }, 100),
     );
 
-    navigateAndSimpleReset('MainDrawer');
+    navigateAndSimpleReset('AppNavigator');
   };
 
   useEffect(() => {
