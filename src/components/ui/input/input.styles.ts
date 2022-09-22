@@ -11,6 +11,7 @@ const styles = (themes: ThemeVariables) =>
       padding: themes.MetricsSizes.regular,
       fontSize: themes.FontSize.regular,
       borderRadius: themes.MetricsSizes.border,
+      color: themes.Colors.text,
     },
     textareaInput: {
       paddingTop: themes.MetricsSizes.regular,

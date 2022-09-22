@@ -1,10 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import { ThemePayload, ThemeState } from './types';
 
-const slice = createSlice({
+const initialState: ThemeState = {
+  theme: 'default',
+  darkMode: null,
+};
+
+const themeSlice = createSlice({
   name: 'theme',
-  initialState: { theme: 'default', darkMode: null } as ThemeState,
+  initialState: initialState,
   reducers: {
     changeTheme: (state, { payload: { theme, darkMode } }: ThemePayload) => {
       if (typeof theme !== 'undefined') {
@@ -30,6 +34,6 @@ const slice = createSlice({
   },
 });
 
-export const { changeTheme, setDefaultTheme } = slice.actions;
+export const { changeTheme, setDefaultTheme } = themeSlice.actions;
 
-export default slice.reducer;
+export default themeSlice.reducer;
