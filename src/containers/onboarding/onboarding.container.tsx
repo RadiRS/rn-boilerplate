@@ -8,18 +8,20 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 
+import { navigate } from '@/navigators/utils';
+import { Button } from '@/components/ui';
 import { AppImage } from '@/assets';
 
 import styles, { bgs, width } from './onboarding.styles';
 import Indicator from './Indicator.section';
 import Backdrop from './backdrop.section';
 import SliderItem from './slider-item.component';
-import { Button } from '@/components/ui';
 
 const OnboardingContainer = () => {
   const scrollX: Animated.Value = useRef(new Animated.Value(0)).current;
-  const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
   const ref = React.useRef<FlatList>(null);
+  const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
+  const isLastIndex = currentSlideIndex === DATA.length - 1;
 
   const onScrollRef = Animated.event(
     [
@@ -74,12 +76,24 @@ const OnboardingContainer = () => {
       />
       <Indicator scrollX={scrollX} data={DATA} />
       <View style={styles.footer}>
-        <Button appearance="ghost" onPress={skip}>
-          Skip
-        </Button>
-        <Button appearance="ghost" onPress={goToNextSlide}>
-          Next
-        </Button>
+        {!isLastIndex ? (
+          <>
+            <Button appearance="ghost" onPress={skip}>
+              Skip
+            </Button>
+            <Button appearance="ghost" onPress={goToNextSlide}>
+              Next
+            </Button>
+          </>
+        ) : (
+          <Button
+            appearance="ghost"
+            onPress={() => navigate('AppNavigator')}
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ marginLeft: 'auto' }}>
+            Done
+          </Button>
+        )}
       </View>
     </View>
   );

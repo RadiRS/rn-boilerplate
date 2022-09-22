@@ -9,7 +9,7 @@ import { useTheme } from '@/hooks';
 import {
   AuthenticationContainer,
   OnboardingContainer,
-  SplashContainer,
+  // SplashContainer,
 } from '@/containers';
 
 import { navigationRef } from './utils';
@@ -38,11 +38,6 @@ const RootNavigator = () => {
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
           initialRouteName="Onboarding">
-          <Stack.Screen
-            name="Splash"
-            component={SplashContainer}
-            options={{ headerShown: false }}
-          />
           <Stack.Screen
             name="Onboarding"
             component={OnboardingContainer}
