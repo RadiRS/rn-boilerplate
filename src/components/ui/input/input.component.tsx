@@ -50,6 +50,7 @@ const Input = forwardRef(
             autoCapitalize="none"
             secureTextEntry={type === 'password'}
             keyboardType={type === 'email' ? 'email-address' : keyboardType}
+            placeholderTextColor={themes.Colors.hint}
             style={[extStyle.input, inputStyle, errorStyle]}
             {...textareaProps}
             {...props}
@@ -63,6 +64,7 @@ const Input = forwardRef(
             ref={ref}
             mask={mask}
             keyboardType={keyboardType}
+            placeholderTextColor={themes.Colors.hint}
             style={[extStyle.input, inputStyle, errorStyle]}
             value={props.value || ''}
             onChangeText={(_, rawText: string) => {
@@ -80,6 +82,11 @@ const Input = forwardRef(
           <MaskInput
             {...props}
             ref={ref}
+            keyboardType="number-pad"
+            value={props.value ?? ''}
+            placeholderTextColor={themes.Colors.hint}
+            style={[extStyle.input, inputStyle, errorStyle]}
+            placeholder={props.placeholder}
             mask={MasksHelper.ID_CURRENCY}
             onChangeText={(_, rawText: string) => {
               if (!props.onChangeText) {
@@ -88,10 +95,6 @@ const Input = forwardRef(
 
               props.onChangeText(rawText);
             }}
-            style={[extStyle.input, inputStyle, errorStyle]}
-            keyboardType="number-pad"
-            value={props.value ?? ''}
-            placeholder={props.placeholder}
           />
         )}
 

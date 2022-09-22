@@ -1,6 +1,7 @@
 const Colors = {
   primary: 'lightblue',
-  text: 'white',
+  hint: '#F1F1F1',
+  text: '#FFFF',
   dark: '#212529',
   inputBackground: 'gray',
   alternative: 'black',

@@ -16,10 +16,10 @@ const HeaderSection = () => {
         Header Section
       </Text>
       <Text variant="title-small" appearance="alternative">
-        Environment: {Config.env}
+        Environment: {Config.ENV}
       </Text>
       <Text variant="small" appearance="alternative">
-        API_URL: {Config.apiUrl}
+        API_URL: {Config.API_URL}
       </Text>
     </View>
   );
