@@ -7,3 +7,4 @@ export { default as TextPreviewContainer } from './text-preview/text-preview.con
 export { default as InputPreviewContainer } from './input-preview/input-preview.container';
 export { default as ButtonPreviewContainer } from './button-preview/button-preview.container';
 export { default as FlatListPreviewContainer } from './flatlist-preview/flatlist-preview.container';
+export { default as OnboardingContainer } from './onboarding/onboarding.container';
