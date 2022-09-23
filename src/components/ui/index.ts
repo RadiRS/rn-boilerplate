@@ -6,3 +6,4 @@ export { default as ScrollView } from './scroll-view';
 export { default as Form } from './form';
 export { default as Checkbox } from './checkbox';
 export { default as FlatList } from './flatlist';
+export { default as ErrorBoundary } from './error-boundary';

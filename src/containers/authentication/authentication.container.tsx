@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigation } from '@react-navigation/native';
 import * as yup from 'yup';
 
+import { useTheme } from '@/hooks';
 import { useAppDispatch } from '@/store';
 import { setCredentials, AuthState } from '@/store/auth';
+import { navigateAndSimpleReset } from '@/navigators/utils';
 import {
   usePostLoginMutation,
   usePostRegisterMutation,
   Credential,
 } from '@/services/auth';
-
-import { useTheme } from '@/hooks';
 import { SafeArea, Input, Button, Text, Form } from '@/components/ui';
 
 const AuthenticationContainer = () => {
-  const navigation = useNavigation();
-  const themes = useTheme();
+  const { Gutters, Layout } = useTheme();
   const dispatch = useAppDispatch();
   const [isLogin, setIsLogin] = useState(true);
 
@@ -55,7 +53,7 @@ const AuthenticationContainer = () => {
       };
 
       dispatch(setCredentials(userData));
-      navigation.goBack();
+      navigateAndSimpleReset('AppNavigator');
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log('error', JSON.stringify(e));
@@ -68,63 +66,63 @@ const AuthenticationContainer = () => {
   };
 
   return (
-    <SafeArea padder style={[themes.Layout.center]}>
-      <Text variant="title-regular" style={themes.Gutters.largeBMargin}>
+    <SafeArea padder style={[Layout.center]}>
+      <Text variant="title-regular" style={Gutters.largeBMargin}>
         {isLogin ? 'Login' : 'Register'}
       </Text>
       {isLogin && (
-        <Form style={themes.Layout.fullWidth} {...formMethods}>
+        <Form style={Layout.fullWidth} {...formMethods}>
           <Input
             type="text"
             name="username"
             placeholder="Username"
             returnKeyType="next"
-            style={themes.Gutters.regularBMargin}
+            style={Gutters.regularBMargin}
           />
           <Input
             type="password"
             name="password"
             placeholder="Password"
             returnKeyType="done"
-            style={themes.Gutters.largeBMargin}
+            style={Gutters.largeBMargin}
           />
         </Form>
       )}
       {!isLogin && (
-        <Form style={themes.Layout.fullWidth} {...formMethods}>
+        <Form style={Layout.fullWidth} {...formMethods}>
           <Input
             type="text"
             name="name"
             placeholder="Name"
             returnKeyType="next"
-            style={themes.Gutters.regularBMargin}
+            style={Gutters.regularBMargin}
           />
           <Input
             type="text"
             name="username"
             placeholder="Username"
             returnKeyType="next"
-            style={themes.Gutters.regularBMargin}
+            style={Gutters.regularBMargin}
           />
           <Input
             type="password"
             name="password"
             placeholder="Password"
             returnKeyType="done"
-            style={themes.Gutters.largeBMargin}
+            style={Gutters.largeBMargin}
           />
         </Form>
       )}
       {isError && (
-        <Text status="error" style={themes.Gutters.regularBMargin}>
+        <Text status="error" style={Gutters.regularBMargin}>
           {JSON.stringify(error)}
         </Text>
       )}
-      <View style={themes.Layout.fullWidth}>
+      <View style={Layout.fullWidth}>
         <Button
           loading={isLoading}
           onPress={formMethods.handleSubmit(onPressSubmit)}
-          style={themes.Gutters.regularBMargin}>
+          style={Gutters.regularBMargin}>
           {isLogin ? 'Login' : 'Register'}
         </Button>
         <Button appearance="ghost" disabled={isLoading} onPress={onPressToggle}>

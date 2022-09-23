@@ -1,11 +1,12 @@
 import createSensitiveStorage from 'redux-persist-sensitive-storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persistReducer } from 'redux-persist';
+import { combineReducers } from '@reduxjs/toolkit';
 
 import { api } from '@/services/api';
-import { combineReducers } from '@reduxjs/toolkit';
 import { authReducer } from './auth';
 import { themeReducer } from './theme';
+import { initReducer } from './init';
 
 const sensitiveStorage = createSensitiveStorage({
   keychainService: 'authKeychain',
@@ -20,11 +21,12 @@ const authPersistConfig = {
 const mainPersistConfig = {
   key: 'main',
   storage: AsyncStorage,
-  whitelist: ['theme'],
+  whitelist: ['theme', 'init'],
 };
 
 const rootReducers = combineReducers({
   theme: themeReducer,
+  init: initReducer,
   auth: persistReducer(authPersistConfig, authReducer),
   [api.reducerPath]: api.reducer,
 });

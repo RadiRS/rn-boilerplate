@@ -8,9 +8,11 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 
-import { navigate } from '@/navigators/utils';
-import { Button } from '@/components/ui';
 import { AppImage } from '@/assets';
+import { useAppDispatch } from '@/store';
+import { clearCredentials } from '@/store/auth';
+import { navigateAndSimpleReset } from '@/navigators/utils';
+import { Button } from '@/components/ui';
 
 import styles, { bgs, width } from './onboarding.styles';
 import Indicator from './Indicator.section';
@@ -18,6 +20,7 @@ import Backdrop from './backdrop.section';
 import SliderItem from './slider-item.component';
 
 const OnboardingContainer = () => {
+  const dispatch = useAppDispatch();
   const scrollX: Animated.Value = useRef(new Animated.Value(0)).current;
   const ref = React.useRef<FlatList>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
@@ -56,9 +59,14 @@ const OnboardingContainer = () => {
     setCurrentSlideIndex(currentIndex);
   };
 
+  const onPressDone = () => {
+    dispatch(clearCredentials());
+    navigateAndSimpleReset('Authentication');
+  };
+
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
+      <StatusBar hidden translucent />
       <Backdrop scrollX={scrollX} data={bgs} />
       <Animated.FlatList
         horizontal
@@ -88,7 +96,7 @@ const OnboardingContainer = () => {
         ) : (
           <Button
             appearance="ghost"
-            onPress={() => navigate('AppNavigator')}
+            onPress={onPressDone}
             // eslint-disable-next-line react-native/no-inline-styles
             style={{ marginLeft: 'auto' }}>
             Done
