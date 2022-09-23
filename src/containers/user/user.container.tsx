@@ -1,17 +1,18 @@
 import React from 'react';
+import { View } from 'react-native';
 
+import { useTheme } from '@/hooks';
 import { useAppSelector, useAppDispatch } from '@/store';
 import {
   selectCurrentUser,
   selectCurrentToken,
   clearCredentials,
 } from '@/store/auth';
-import { navigate } from '@/navigators/utils';
-import { useTheme } from '@/hooks';
-import { Button, SafeArea, Text } from '@/components/ui';
-import { View } from 'react-native';
-import ListUserSection from './list-users.section';
+import { navigateAndSimpleReset } from '@/navigators/utils';
 import { useLazyGetLogoutQuery } from '@/services/auth';
+import { Button, SafeArea, Text } from '@/components/ui';
+
+import ListUserSection from './list-users.section';
 
 const UserContainer = () => {
   const dispatch = useAppDispatch();
@@ -23,7 +24,7 @@ const UserContainer = () => {
 
   const onPress = () => {
     if (!token) {
-      navigate('Authentication');
+      navigateAndSimpleReset('Authentication');
       return;
     }
 
@@ -46,16 +47,18 @@ const UserContainer = () => {
         <Text style={Gutters.regularBMargin}>
           {user ? `Current User: ${JSON.stringify(user)} ` : 'No User'}
         </Text>
-        <Text>{token ? `Token: ${token.slice(0, 9)}...` : 'No Token'}</Text>
+        <Text style={Gutters.regularBMargin}>
+          {token ? `Token: ${token.slice(0, 9)}...` : 'No Token'}
+        </Text>
+        <ListUserSection />
+      </View>
+      <View style={Layout.fullWidth}>
         <Button
           loading={isLoading}
           onPress={onPress}
           style={Gutters.regularTMargin}>
           {token ? 'Logout' : 'Login'}
         </Button>
-      </View>
-      <View style={Layout.fullWidth}>
-        <ListUserSection />
       </View>
     </SafeArea>
   );

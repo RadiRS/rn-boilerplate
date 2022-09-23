@@ -8,11 +8,11 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 
-import { setInitState } from '@/store/init';
-import { useAppDispatch } from '@/store';
-import { navigate } from '@/navigators/utils';
-import { Button } from '@/components/ui';
 import { AppImage } from '@/assets';
+import { useAppDispatch } from '@/store';
+import { setInitState } from '@/store/init';
+import { navigateAndSimpleReset } from '@/navigators/utils';
+import { Button } from '@/components/ui';
 
 import styles, { bgs, width } from './onboarding.styles';
 import Indicator from './Indicator.section';
@@ -61,7 +61,7 @@ const OnboardingContainer = () => {
 
   const onPressDone = () => {
     dispatch(setInitState({ isFirstInstall: false }));
-    navigate('AppNavigator');
+    navigateAndSimpleReset('Authentication');
   };
 
   return (

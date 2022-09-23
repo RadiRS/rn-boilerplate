@@ -5,15 +5,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { useAppSelector } from '@/store';
 import { useTheme } from '@/hooks';
+import { useAppSelector } from '@/store';
+import { selectIsFirstInstall } from '@/store/init';
+import { selectCurrentToken } from '@/store/auth';
 import {
   AuthenticationContainer,
   OnboardingContainer,
   // SplashContainer,
 } from '@/containers';
-
-import { selectIsFirstInstall } from '@/store/init';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
@@ -24,6 +24,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 // @refresh reset
 const RootNavigator = () => {
   const isFirstInstall = useAppSelector(selectIsFirstInstall);
+  const accessToken = useAppSelector(selectCurrentToken);
   const { darkMode, NavigationTheme, Layout } = useTheme();
   const barStyle = darkMode ? 'light-content' : 'dark-content';
   const backgroundColor = NavigationTheme.colors.card;
@@ -34,6 +35,8 @@ const RootNavigator = () => {
 
   const initialRouteName: keyof RootStackParamList = isFirstInstall
     ? 'Onboarding'
+    : !accessToken
+    ? 'Authentication'
     : 'AppNavigator';
 
   return (
@@ -54,8 +57,9 @@ const RootNavigator = () => {
           <Stack.Screen
             name="AppNavigator"
             component={AppNavigator}
-            options={{ animation: 'none' }}
+            // options={{ animation: 'none' }}
           />
+
           <Stack.Screen
             name="Authentication"
             component={AuthenticationContainer}

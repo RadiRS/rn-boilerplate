@@ -2,22 +2,20 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigation } from '@react-navigation/native';
 import * as yup from 'yup';
 
+import { useTheme } from '@/hooks';
 import { useAppDispatch } from '@/store';
 import { setCredentials, AuthState } from '@/store/auth';
+import { navigateAndSimpleReset } from '@/navigators/utils';
 import {
   usePostLoginMutation,
   usePostRegisterMutation,
   Credential,
 } from '@/services/auth';
-
-import { useTheme } from '@/hooks';
 import { SafeArea, Input, Button, Text, Form } from '@/components/ui';
 
 const AuthenticationContainer = () => {
-  const navigation = useNavigation();
   const themes = useTheme();
   const dispatch = useAppDispatch();
   const [isLogin, setIsLogin] = useState(true);
@@ -55,7 +53,7 @@ const AuthenticationContainer = () => {
       };
 
       dispatch(setCredentials(userData));
-      navigation.goBack();
+      navigateAndSimpleReset('AppNavigator');
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log('error', JSON.stringify(e));
