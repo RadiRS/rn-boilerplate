@@ -5,12 +5,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+import { useAppSelector } from '@/store';
 import { useTheme } from '@/hooks';
 import {
   AuthenticationContainer,
   OnboardingContainer,
   // SplashContainer,
 } from '@/containers';
+
+import { selectIsFirstInstall } from '@/store/init';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
@@ -20,6 +23,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 // @refresh reset
 const RootNavigator = () => {
+  const isFirstInstall = useAppSelector(selectIsFirstInstall);
   const { darkMode, NavigationTheme, Layout } = useTheme();
   const barStyle = darkMode ? 'light-content' : 'dark-content';
   const backgroundColor = NavigationTheme.colors.card;
@@ -27,6 +31,10 @@ const RootNavigator = () => {
   const onReady = () => {
     RNBootSplash.hide({ fade: true });
   };
+
+  const initialRouteName: keyof RootStackParamList = isFirstInstall
+    ? 'Onboarding'
+    : 'AppNavigator';
 
   return (
     <GestureHandlerRootView style={Layout.fill}>
@@ -37,7 +45,7 @@ const RootNavigator = () => {
         <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Onboarding">
+          initialRouteName={initialRouteName}>
           <Stack.Screen
             name="Onboarding"
             component={OnboardingContainer}

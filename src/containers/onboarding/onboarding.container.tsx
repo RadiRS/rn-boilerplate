@@ -8,6 +8,8 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 
+import { setInitState } from '@/store/init';
+import { useAppDispatch } from '@/store';
 import { navigate } from '@/navigators/utils';
 import { Button } from '@/components/ui';
 import { AppImage } from '@/assets';
@@ -18,6 +20,7 @@ import Backdrop from './backdrop.section';
 import SliderItem from './slider-item.component';
 
 const OnboardingContainer = () => {
+  const dispatch = useAppDispatch();
   const scrollX: Animated.Value = useRef(new Animated.Value(0)).current;
   const ref = React.useRef<FlatList>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
@@ -56,6 +59,11 @@ const OnboardingContainer = () => {
     setCurrentSlideIndex(currentIndex);
   };
 
+  const onPressDone = () => {
+    dispatch(setInitState({ isFirstInstall: false }));
+    navigate('AppNavigator');
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -88,7 +96,7 @@ const OnboardingContainer = () => {
         ) : (
           <Button
             appearance="ghost"
-            onPress={() => navigate('AppNavigator')}
+            onPress={onPressDone}
             // eslint-disable-next-line react-native/no-inline-styles
             style={{ marginLeft: 'auto' }}>
             Done
