@@ -10,7 +10,7 @@ import {
 
 import { AppImage } from '@/assets';
 import { useAppDispatch } from '@/store';
-import { setInitState } from '@/store/init';
+import { clearCredentials } from '@/store/auth';
 import { navigateAndSimpleReset } from '@/navigators/utils';
 import { Button } from '@/components/ui';
 
@@ -60,13 +60,13 @@ const OnboardingContainer = () => {
   };
 
   const onPressDone = () => {
-    dispatch(setInitState({ isFirstInstall: false }));
+    dispatch(clearCredentials());
     navigateAndSimpleReset('Authentication');
   };
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
+      <StatusBar hidden translucent />
       <Backdrop scrollX={scrollX} data={bgs} />
       <Animated.FlatList
         horizontal

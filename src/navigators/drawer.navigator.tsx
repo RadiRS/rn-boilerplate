@@ -17,7 +17,10 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="Home"
         component={HomeContainer}
-        options={{ title: 'RN Boilerplate', headerTitle: 'RN Boilerplate' }}
+        options={{
+          title: 'RN Boilerplate',
+          headerTitle: 'RN Boilerplate',
+        }}
       />
       <Drawer.Screen
         name="TextPreviewContainer"
