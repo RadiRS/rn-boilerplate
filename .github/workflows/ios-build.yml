@@ -12,6 +12,8 @@ jobs:
   ios-build:
     name: IOS Build
     runs-on: macOS-latest
+    env:
+      DEV_API_URL: ${{ secrets.DEV_API_URL }}
     defaults:
       run:
         working-directory: ios
