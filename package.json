@@ -112,11 +112,9 @@
     "metro-react-native-babel-preset": "^0.72.1",
     "np": "^7.6.2",
     "react-dom": "18.0.0",
-    "react-native-flipper": "^0.164.0",
     "react-native-rename": "^2.9.0",
     "react-native-version": "^4.0.0",
     "react-test-renderer": "18.1.0",
-    "redux-flipper": "^2.0.2",
     "typescript": "^4.4.4"
   },
   "jest": {

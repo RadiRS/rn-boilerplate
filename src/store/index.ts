@@ -23,11 +23,6 @@ const store = configureStore({
       },
     }).concat(api.middleware);
 
-    if (__DEV__) {
-      const createDebugger = require('redux-flipper').default;
-      middlewares.push(createDebugger());
-    }
-
     return middlewares;
   },
 });
