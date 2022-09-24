@@ -11,6 +11,8 @@ on:
 jobs:
   android-build:
     runs-on: ubuntu-latest
+    env:
+      DEV_API_URL: ${{ secrets.DEV_API_URL }}
 
     steps:
       - name: Cancel Previous Runs
