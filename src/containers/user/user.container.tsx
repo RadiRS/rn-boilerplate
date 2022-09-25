@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 import { useTheme } from '@/hooks';
 import { useAppSelector, useAppDispatch } from '@/store';
@@ -8,16 +9,20 @@ import {
   selectCurrentToken,
   clearCredentials,
 } from '@/store/auth';
-import { navigateAndSimpleReset } from '@/navigators/utils';
 import { useLazyGetLogoutQuery } from '@/services/auth';
+import { navigateAndSimpleReset } from '@/navigators/utils';
 import { Button, SafeArea, Text } from '@/components/ui';
 
 import ListUserSection from './list-users.section';
 
 const UserContainer = () => {
+  const { params } = useRoute();
   const dispatch = useAppDispatch();
   const [logoutRequest, { isLoading }] = useLazyGetLogoutQuery();
   const { Layout, Gutters } = useTheme();
+
+  // eslint-disable-next-line no-console
+  console.log('User ID: ', params);
 
   const user = useAppSelector(selectCurrentUser);
   const token = useAppSelector(selectCurrentToken);
