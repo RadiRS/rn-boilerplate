@@ -20,8 +20,8 @@ public class RNConfigModule extends ReactContextBaseJavaModule {
 
     @Override
     public Map<String, Object> getConstants() {
-        final Map<String, Object> contansts = new HashMap<>();
-        contansts.put("env", BuildConfig.FLAVOR);
-        return contansts;
+        final Map<String, Object> constants = new HashMap<>();
+        constants.put("env", BuildConfig.FLAVOR);
+        return constants;
     }
 }
