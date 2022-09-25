@@ -14,6 +14,7 @@ plugins.push(
   ],
   'react-native-reanimated/plugin',
   'module:react-native-dotenv',
+  '@babel/plugin-transform-named-capturing-groups-regex',
 );
 
 module.exports = {
