@@ -2,7 +2,7 @@ import React from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 import { StatusBar } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { useTheme } from '@/hooks';
@@ -19,6 +19,24 @@ import { RootStackParamList } from './types';
 import AppNavigator from './app.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const linking: LinkingOptions<RootStackParamList> | undefined = {
+  prefixes: ['rnapp://'],
+  config: {
+    screens: {
+      // rnapp://auth
+      Authentication: 'auth',
+      AppNavigator: {
+        screens: {
+          // rnapp://user/1 || rnapp://user (id is optional)
+          UserStack: 'user/:id?',
+          // rnapp://preview
+          PreviewStack: 'preview',
+        },
+      },
+    },
+  },
+};
 
 // @refresh reset
 const RootNavigator = () => {
@@ -43,6 +61,7 @@ const RootNavigator = () => {
     <GestureHandlerRootView style={Layout.fill}>
       <NavigationContainer
         ref={navigationRef}
+        linking={linking}
         theme={NavigationTheme}
         onReady={onReady}>
         <StatusBar barStyle={barStyle} backgroundColor={backgroundColor} />
