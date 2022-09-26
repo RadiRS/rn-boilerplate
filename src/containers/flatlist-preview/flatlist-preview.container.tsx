@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ListRenderItem, View } from 'react-native';
 
 import { useTheme } from '@/hooks';
-import { FlatList, Text } from '@/components/ui';
+import { FlatList, SafeArea, Text } from '@/components/ui';
 import { useGetTodosQuery, Todo, ParamsTodo } from '@/services/todo';
 
 const isValidNotEmptyArray = (array: any[]): boolean => {
@@ -73,14 +73,16 @@ const FlatListPreviewContainer = () => {
   };
 
   return (
-    <FlatList
-      data={todos}
-      refreshing={isLoading}
-      onRefresh={onRefresh}
-      onEndReached={onEndReached}
-      renderItem={renderItem}
-      ListFooterComponent={renderFooter}
-    />
+    <SafeArea>
+      <FlatList
+        data={todos}
+        refreshing={isLoading}
+        onRefresh={onRefresh}
+        onEndReached={onEndReached}
+        renderItem={renderItem}
+        ListFooterComponent={renderFooter}
+      />
+    </SafeArea>
   );
 };
 
