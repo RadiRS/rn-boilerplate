@@ -16,7 +16,7 @@ import {
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
-import AppNavigator from './app.navigator';
+import DrawerNavigator from './drawer.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -54,7 +54,7 @@ const RootNavigator = () => {
     status === 'idle'
       ? 'Onboarding'
       : status === 'signIn'
-      ? 'AppNavigator'
+      ? 'MainDrawer'
       : 'Authentication';
 
   return (
@@ -77,8 +77,8 @@ const RootNavigator = () => {
           )}
           {status === 'signIn' && (
             <Stack.Screen
-              name="AppNavigator"
-              component={AppNavigator}
+              name="MainDrawer"
+              component={DrawerNavigator}
               // options={{ animation: 'none' }}
             />
           )}

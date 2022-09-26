@@ -7,7 +7,6 @@ import * as yup from 'yup';
 import { useTheme } from '@/hooks';
 import { useAppDispatch } from '@/store';
 import { setCredentials, AuthState } from '@/store/auth';
-import { navigateAndSimpleReset } from '@/navigators/utils';
 import {
   usePostLoginMutation,
   usePostRegisterMutation,
@@ -53,7 +52,6 @@ const AuthenticationContainer = () => {
       };
 
       dispatch(setCredentials(userData));
-      navigateAndSimpleReset('AppNavigator');
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log('error', JSON.stringify(e));

@@ -2,12 +2,12 @@ import React from 'react';
 import {
   ButtonPreviewContainer,
   FlatListPreviewContainer,
-  HomeContainer,
   InputPreviewContainer,
   TextPreviewContainer,
 } from '@/containers';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { RootStackParamList } from './types';
+import AppNavigator from './app.navigator';
 
 const Drawer = createDrawerNavigator<RootStackParamList>();
 
@@ -16,7 +16,7 @@ const DrawerNavigator = () => {
     <Drawer.Navigator>
       <Drawer.Screen
         name="Home"
-        component={HomeContainer}
+        component={AppNavigator}
         options={{
           title: 'RN Boilerplate',
           headerTitle: 'RN Boilerplate',
@@ -40,7 +40,10 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="FlatListPreviewContainer"
         component={FlatListPreviewContainer}
-        options={{ title: 'FlatList Preview', headerTitle: 'FlatList Preview' }}
+        options={{
+          title: 'FlatList Preview',
+          headerTitle: 'FlatList Preview | Todo List',
+        }}
       />
     </Drawer.Navigator>
   );
