@@ -4,6 +4,8 @@ import { persistReducer } from 'redux-persist';
 import { combineReducers } from '@reduxjs/toolkit';
 
 import { api } from '@/services/api';
+import { todoApi } from '@/services/todo';
+
 import { authReducer } from './auth';
 import { themeReducer } from './theme';
 import { initReducer } from './init';
@@ -29,6 +31,7 @@ const rootReducers = combineReducers({
   init: initReducer,
   auth: persistReducer(authPersistConfig, authReducer),
   [api.reducerPath]: api.reducer,
+  [todoApi.reducerPath]: todoApi.reducer,
 });
 
 export default persistReducer(mainPersistConfig, rootReducers);

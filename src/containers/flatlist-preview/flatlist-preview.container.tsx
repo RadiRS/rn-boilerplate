@@ -1,39 +1,87 @@
-import React from 'react';
-import { ListRenderItem, View } from 'react-native';
-import { Text } from '@/components/ui';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, ListRenderItem, View } from 'react-native';
 
-import data from '@/assets/data.json';
-import { FlatList } from '@/components/ui';
 import { useTheme } from '@/hooks';
+import { FlatList, Text } from '@/components/ui';
+import { useGetTodosQuery, Todo, ParamsTodo } from '@/services/todo';
+
+const isValidNotEmptyArray = (array: any[]): boolean => {
+  return !!(array && array?.length && array?.length > 0);
+};
 
 const FlatListPreviewContainer = () => {
-  const themes = useTheme();
+  const { Gutters, Layout } = useTheme();
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [params, setParams] = useState<ParamsTodo>({
+    _page: 1,
+    _limit: 20,
+  });
+  const { data, isLoading, isFetching } = useGetTodosQuery(params);
 
-  const renderItem: ListRenderItem<Data> = ({ item }) => (
+  useEffect(() => {
+    if (!data || !isValidNotEmptyArray(data)) {
+      return;
+    }
+
+    if (params._page === 1) {
+      setTodos(data);
+    } else {
+      setTodos(prevState => [...prevState, ...data]);
+    }
+  }, [data, params._page]);
+
+  const onRefresh = () => {
+    setParams({
+      ...params,
+      _page: 1,
+      q: '',
+    });
+  };
+
+  const onEndReached = () => {
+    if (!data || !isValidNotEmptyArray(data)) {
+      return;
+    }
+
+    setParams(prevState => ({
+      ...prevState,
+      _page: prevState._page && prevState._page + 1,
+    }));
+  };
+
+  const renderItem: ListRenderItem<Todo> = ({ item }) => (
     <View
       style={[
-        themes.Gutters.regularHPadding,
-        themes.Gutters.smallVPadding,
+        Gutters.regularHPadding,
+        Gutters.smallVPadding,
         // eslint-disable-next-line react-native/no-inline-styles
         { borderBottomColor: 'grey', borderBottomWidth: 1 },
       ]}>
       <Text>Title: {item.title}</Text>
-      <View style={themes.Layout.row}>
+      <View style={Layout.row}>
         <Text>Completed: {item.completed ? 'Yes' : 'No'} </Text>
       </View>
     </View>
   );
 
-  const onRefresh = () => {};
+  const renderFooter = () => {
+    if (!isFetching) {
+      return null;
+    }
 
-  return <FlatList data={data} renderItem={renderItem} onRefresh={onRefresh} />;
+    return <ActivityIndicator style={Gutters.regularVMargin} size="small" />;
+  };
+
+  return (
+    <FlatList
+      data={todos}
+      refreshing={isLoading}
+      onRefresh={onRefresh}
+      onEndReached={onEndReached}
+      renderItem={renderItem}
+      ListFooterComponent={renderFooter}
+    />
+  );
 };
-
-interface Data {
-  id: number;
-  userId: number;
-  completed: boolean;
-  title: string;
-}
 
 export default FlatListPreviewContainer;
