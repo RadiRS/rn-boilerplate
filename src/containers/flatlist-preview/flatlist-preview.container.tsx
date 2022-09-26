@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ListRenderItem, View } from 'react-native';
 
 import { useTheme } from '@/hooks';
-import { FlatList, SafeArea, Text } from '@/components/ui';
+import { FlatList, Input, SafeArea, Text } from '@/components/ui';
 import { useGetTodosQuery, Todo, ParamsTodo } from '@/services/todo';
+import { debounce } from '@/helpers';
 
 const isValidNotEmptyArray = (array: any[]): boolean => {
   return !!(array && array?.length && array?.length > 0);
@@ -15,6 +16,7 @@ const FlatListPreviewContainer = () => {
   const [params, setParams] = useState<ParamsTodo>({
     _page: 1,
     _limit: 20,
+    q: '',
   });
   const { data, isLoading, isFetching } = useGetTodosQuery(params);
 
@@ -49,6 +51,10 @@ const FlatListPreviewContainer = () => {
     }));
   };
 
+  const onChangeText = debounce((value: string) => {
+    setParams(prevState => ({ ...prevState, q: value, _page: 1 }));
+  }, 500);
+
   const renderItem: ListRenderItem<Todo> = ({ item }) => (
     <View
       style={[
@@ -63,6 +69,14 @@ const FlatListPreviewContainer = () => {
       </View>
     </View>
   );
+
+  const renderHeader = () => {
+    return (
+      <View style={[Gutters.regularVPadding, Gutters.regularHPadding]}>
+        <Input placeholder="Search.." onChangeText={onChangeText} />
+      </View>
+    );
+  };
 
   const renderFooter = () => {
     if (!isFetching) {
@@ -80,7 +94,8 @@ const FlatListPreviewContainer = () => {
         onRefresh={onRefresh}
         onEndReached={onEndReached}
         renderItem={renderItem}
-        ListFooterComponent={renderFooter}
+        ListHeaderComponent={renderHeader()}
+        ListFooterComponent={renderFooter()}
       />
     </SafeArea>
   );
