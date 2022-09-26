@@ -21,22 +21,38 @@ const FlatListPreviewContainer = () => {
   const { data, isLoading, isFetching } = useGetTodosQuery(params);
 
   useEffect(() => {
+    // for query search
+    if (params.q) {
+      if (!data) {
+        return;
+      }
+
+      if (params._page === 1) {
+        setTodos(data);
+      } else {
+        if (isValidNotEmptyArray(data) && data.length === params._limit) {
+          setTodos(prevState => [...prevState, ...data]);
+        }
+      }
+      return;
+    }
+
     if (!data || !isValidNotEmptyArray(data)) {
       return;
     }
 
+    // for initial request and pagination
     if (params._page === 1) {
       setTodos(data);
     } else {
       setTodos(prevState => [...prevState, ...data]);
     }
-  }, [data, params._page]);
+  }, [data, params._page, params.q, params._limit]);
 
   const onRefresh = () => {
     setParams({
       ...params,
       _page: 1,
-      q: '',
     });
   };
 
@@ -86,6 +102,19 @@ const FlatListPreviewContainer = () => {
     return <ActivityIndicator style={Gutters.regularVMargin} size="small" />;
   };
 
+  const renderEmpty = () => {
+    return (
+      <View
+        style={[
+          Gutters.regularVPadding,
+          Gutters.regularHPadding,
+          Layout.center,
+        ]}>
+        <Text>No item</Text>
+      </View>
+    );
+  };
+
   return (
     <SafeArea>
       <FlatList
@@ -96,6 +125,7 @@ const FlatListPreviewContainer = () => {
         renderItem={renderItem}
         ListHeaderComponent={renderHeader()}
         ListFooterComponent={renderFooter()}
+        ListEmptyComponent={renderEmpty()}
       />
     </SafeArea>
   );
