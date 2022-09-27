@@ -16,15 +16,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-[Yarn (Package Manager)](https://yarnpkg.com)
-[Android Studio for Android Development](https://developer.android.com/studio)
-[XCode for iOS Development](https://developer.apple.com/xcode/)
+- [Yarn (Package Manager)](https://yarnpkg.com)
+- [Android Studio for Android Development](https://developer.android.com/studio)
+- [XCode for iOS Development](https://developer.apple.com/xcode/)
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Clone the repositori via http or ssh
+Clone the repository via http or ssh
 
 ```
 git clone https://github.com/RadiRS/rn-boilerplate.git your_app_name
@@ -47,6 +47,19 @@ yarn android   //android
 yarn ios       //ios
 ```
 
+Change app name or bundle identifier with [react-native-rename](https://github.com/junedomingo/react-native-rename)
+
+```
+yarn react-native-rename "My App" -b com.example.myapp
+```
+
+Splash screen generator with [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash)
+
+```
+yarn react-native generate-bootsplash src/assets/images/logo.png \
+  --background-color=212529
+```
+
 End with an example of getting some data out of the system or using it for a little demo
 
 <p>&nbsp;</p>
@@ -55,11 +68,16 @@ End with an example of getting some data out of the system or using it for a lit
 
 ### Break down into end to end tests
 
-Explain what these tests test and why.
+Unit Tests and Component Test with Jest. End-to-End Test with Detox.
+
 For testing just run script command
 
 ```
 yarn test
+```
+
+```
+yarn e2e-ios
 ```
 
 <p>&nbsp;</p>
@@ -74,12 +92,17 @@ Setup your signed apk by follow [this](https://facebook.github.io/react-native/d
 yarn build-android
 ```
 
+### iOS
+
+Setup your iOS app by follow [this](https://reactnative.dev/docs/publishing-to-app-store) tutorial
+
 <p>&nbsp;</p>
 
 ## Built With
 
 - [React Native](https://facebook.github.io/react-native/) - The mobile framework used
 - [React Navigation](https://reactnavigation.org/) - Routing and navigation for your React Native apps
+- [Redux Toolkit](https://redux-toolkit.js.org) - Toolset for efficient Redux development
 
 <p>&nbsp;</p>
 
@@ -111,6 +134,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- [React Native Boilerplate The Coding Machine](https://thecodingmachine.github.io/react-native-boilerplate)
+- [React Native Template Obytes](https://github.com/obytes/react-native-template-obytes)
+- [React Native UI Kitten](https://akveo.github.io/react-native-ui-kitten)
+- [React Native Testing](https://reactnativetesting.io/e2e/intro)
