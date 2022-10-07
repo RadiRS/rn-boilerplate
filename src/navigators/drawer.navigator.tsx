@@ -1,11 +1,13 @@
 import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import {
   ButtonPreviewContainer,
   FlatListPreviewContainer,
   InputPreviewContainer,
   TextPreviewContainer,
+  WebviewPreviewContainer,
 } from '@/containers';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { RootStackParamList } from './types';
 import AppNavigator from './app.navigator';
 
@@ -25,25 +27,30 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="TextPreviewContainer"
         component={TextPreviewContainer}
-        options={{ title: 'Text Preview', headerTitle: 'Text Preview' }}
+        options={{ title: 'Text', headerTitle: 'Text Preview' }}
       />
       <Drawer.Screen
         name="InputPreviewContainer"
         component={InputPreviewContainer}
-        options={{ title: 'Input Preview', headerTitle: 'Input Preview' }}
+        options={{ title: 'Input', headerTitle: 'Input Preview' }}
       />
       <Drawer.Screen
         name="ButtonPreviewContainer"
         component={ButtonPreviewContainer}
-        options={{ title: 'Button Preview', headerTitle: 'Button Preview' }}
+        options={{ title: 'Button', headerTitle: 'Button Preview' }}
       />
       <Drawer.Screen
         name="FlatListPreviewContainer"
         component={FlatListPreviewContainer}
         options={{
-          title: 'FlatList Preview',
+          title: 'FlatList',
           headerTitle: 'FlatList Preview | Todo List',
         }}
+      />
+      <Drawer.Screen
+        name="WebviewPreviewContainer"
+        component={WebviewPreviewContainer}
+        options={{ title: 'Webview', headerTitle: 'Webview Preview' }}
       />
     </Drawer.Navigator>
   );
