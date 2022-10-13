@@ -18,7 +18,7 @@ export interface ButtonProps extends TouchableOpacityProps {
   size?: ButtonSizes;
   appearance?: ButtonAppearances;
   loading?: boolean | null | undefined;
-  disabled?: boolean | null | undefined;
+  disabled?: boolean | undefined;
   style?: ViewStyle;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
@@ -45,10 +45,10 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
-      {...props}
       activeOpacity={0.9}
       style={[s.btn, style]}
-      onPress={extOnPress}>
+      onPress={extOnPress}
+      {...props}>
       {loading ? (
         <ActivityIndicator size="small" color={theme.Colors.alternative} />
       ) : (

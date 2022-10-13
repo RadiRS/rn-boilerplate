@@ -15,9 +15,9 @@ const HomeContainer = () => {
   const { t } = useTranslation();
   const { Fonts, Gutters } = useTheme();
 
-  const onPressChangeTheme = ({ theme, darkMode }: Partial<ThemeState>) => {
+  function onPressChangeTheme({ theme, darkMode }: Partial<ThemeState>) {
     dispatch(changeTheme({ theme, darkMode }));
-  };
+  }
 
   return (
     <SafeArea padder>
