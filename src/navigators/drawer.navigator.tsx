@@ -5,6 +5,7 @@ import {
   ButtonPreviewContainer,
   FlatListPreviewContainer,
   InputPreviewContainer,
+  ModalPreviewContainer,
   TextPreviewContainer,
   WebviewPreviewContainer,
 } from '@/containers';
@@ -51,6 +52,11 @@ const DrawerNavigator = () => {
         name="WebviewPreviewContainer"
         component={WebviewPreviewContainer}
         options={{ title: 'Webview', headerTitle: 'Webview Preview' }}
+      />
+      <Drawer.Screen
+        name="ModalPreviewContainer"
+        component={ModalPreviewContainer}
+        options={{ title: 'Modal', headerTitle: 'Modal Preview' }}
       />
     </Drawer.Navigator>
   );

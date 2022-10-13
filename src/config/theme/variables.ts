@@ -1,3 +1,4 @@
+import { Dimensions } from 'react-native';
 /**
  * This file contains the application's variables.
  *
@@ -66,12 +67,16 @@ const small = tiny * 2; // 10
 const regular = tiny * 3; // 15
 const large = regular * 2; // 30
 const border = 8; // 30
+const { width, height } = Dimensions.get('screen');
+
 export const MetricsSizes = {
   tiny,
   small,
   regular,
   large,
   border,
+  width,
+  height,
 };
 
 export default {

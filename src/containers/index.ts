@@ -9,3 +9,4 @@ export { default as InputPreviewContainer } from './input-preview/input-preview.
 export { default as ButtonPreviewContainer } from './button-preview/button-preview.container';
 export { default as FlatListPreviewContainer } from './flatlist-preview/flatlist-preview.container';
 export { default as WebviewPreviewContainer } from './webview-preview/webview-preview.container';
+export { default as ModalPreviewContainer } from './modal-preview/modal-preview.container';
