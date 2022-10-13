@@ -45,7 +45,7 @@ const nativeExceptionHandler = (exceptionString: string) => {
 
 const ErrorBoundary = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
-    setJSExceptionHandler(jsExceptionHandler, true);
+    setJSExceptionHandler(jsExceptionHandler, false);
     setNativeExceptionHandler(nativeExceptionHandler);
   }, []);
 

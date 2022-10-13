@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { ThemeVariables } from '@/types/theme';
+
+const { width, height } = Dimensions.get('screen');
 
 export default function ({}: ThemeVariables) {
   return StyleSheet.create({
@@ -90,6 +92,12 @@ export default function ({}: ThemeVariables) {
     },
     fullHeight: {
       height: '100%',
+    },
+    screenWidth: {
+      width: width < height ? width : height,
+    },
+    screenHeight: {
+      height: width < height ? height : width,
     },
     /* Operation Layout */
     mirror: {

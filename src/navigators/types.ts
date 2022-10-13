@@ -16,4 +16,5 @@ export type RootStackParamList = {
   ButtonPreviewContainer: undefined;
   FlatListPreviewContainer: undefined;
   WebviewPreviewContainer: undefined;
+  ModalPreviewContainer: undefined;
 };
