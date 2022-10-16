@@ -9,6 +9,7 @@ import {
   TextStatus,
   TextVariants,
   TextTypes,
+  TextAlign,
 } from './text.types';
 
 export interface TextProps extends RNTextProps {
@@ -16,6 +17,7 @@ export interface TextProps extends RNTextProps {
   appearance?: TextAppearances;
   status?: TextStatus | undefined | null;
   type?: TextTypes;
+  align?: TextAlign;
 }
 
 /**

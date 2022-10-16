@@ -11,7 +11,7 @@ const styles = ({
   props: TextProps;
 }) => {
   const { FontsFamily, FontSize, Colors } = theme;
-  const { variant, appearance, status, type } = props;
+  const { variant, appearance, status, type, align } = props;
 
   const base: TextStyle = {
     fontFamily: FontsFamily.regular,
@@ -80,6 +80,13 @@ const styles = ({
       ? { fontFamily: FontsFamily.italic }
       : { fontFamily: FontsFamily.regular };
 
+  const algn: TextStyle =
+    align === 'center'
+      ? { textAlign: 'center' }
+      : align === 'right'
+      ? { textAlign: 'right' }
+      : { textAlign: 'left' };
+
   return StyleSheet.create({
     text: {
       ...base,
@@ -87,6 +94,7 @@ const styles = ({
       ...apr,
       ...sts,
       ...typ,
+      ...algn,
     },
   });
 };
