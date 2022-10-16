@@ -9,3 +9,4 @@ export { default as FlatList } from './flatlist';
 export { default as ErrorBoundary } from './error-boundary';
 export { default as Webview } from './webview';
 export { default as Modal } from './modal';
+export { default as Spinner } from './spinner';
