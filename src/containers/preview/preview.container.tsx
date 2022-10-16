@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
 
 import { useTheme } from '@/hooks';
-import { SafeArea, Text, Button, Spinner } from '@/components/ui';
+import { SafeArea, Text, Button, Spinner, View } from '@/components/ui';
 
 const PreviewContainer: FC = () => {
   const { Layout, Gutters, MetricsSizes } = useTheme();
