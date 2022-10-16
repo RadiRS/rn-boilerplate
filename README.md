@@ -1,4 +1,4 @@
-# React Native Boilerplate Project
+# React Native Boilerplate
 
 ![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
