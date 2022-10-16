@@ -12,6 +12,8 @@ export type TextStatus =
 
 export type TextAppearances = 'default' | 'alternative' | 'hint';
 
+export type TextAlign = 'center' | 'left' | 'right';
+
 export type TextVariants =
   | 'small'
   | 'regular'
