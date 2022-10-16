@@ -3,12 +3,11 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   ViewStyle,
-  ActivityIndicator,
   GestureResponderEvent,
 } from 'react-native';
 
 import { useTheme } from '@/hooks';
-import { Text } from '@/components/ui';
+import { Text, Spinner } from '@/components/ui';
 import { ButtonAppearances, ButtonSizes, ButtonStatus } from './button.types';
 import styles from './button.styles';
 
@@ -50,7 +49,7 @@ const Button: FC<ButtonProps> = ({
       onPress={extOnPress}
       {...props}>
       {loading ? (
-        <ActivityIndicator size="small" color={theme.Colors.alternative} />
+        <Spinner isVisible size="small" color={theme.Colors.alternative} />
       ) : (
         isString && <Text style={s.text}>{children}</Text>
       )}
