@@ -5,14 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { useTheme } from '@/hooks';
+import { useTheme, useTranslation } from '@/hooks';
 import { useAppSelector } from '@/store';
 import { selectCurrentStatus } from '@/store/auth';
-import {
-  AuthenticationContainer,
-  OnboardingContainer,
-  // SplashContainer,
-} from '@/containers';
+import { AuthenticationContainer, OnboardingContainer } from '@/containers';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
@@ -38,15 +34,16 @@ const linking: LinkingOptions<RootStackParamList> | undefined = {
   },
 };
 
-// @refresh reset
 const RootNavigator = () => {
   const { darkMode, NavigationTheme, Layout, Colors } = useTheme();
+  const { setDefaultLanguage } = useTranslation();
   const status = useAppSelector(selectCurrentStatus);
 
   const barStyle = darkMode ? 'light-content' : 'dark-content';
   const backgroundColor = darkMode ? NavigationTheme.colors.card : Colors.white;
 
   const onReady = () => {
+    setDefaultLanguage();
     RNBootSplash.hide({ fade: true });
   };
 

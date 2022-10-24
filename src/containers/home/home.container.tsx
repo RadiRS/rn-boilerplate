@@ -1,18 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
-import { useTheme } from '@/hooks';
+import { useTheme, useTranslation } from '@/hooks';
 import { changeTheme, ThemeState } from '@/store/theme';
-import Translations from '@/config/translations';
-import { Button, Text, SafeArea } from '@/components/ui';
+import { Button, Text, SafeArea, View } from '@/components/ui';
 
 import HeaderSection from './header-section.component';
 
 const HomeContainer = () => {
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+  const { t, changeLanguage } = useTranslation();
   const { Fonts, Gutters } = useTheme();
 
   function onPressChangeTheme({ theme, darkMode }: Partial<ThemeState>) {
@@ -29,13 +26,13 @@ const HomeContainer = () => {
       <Text style={Fonts.textSmall}>{t('welcome')}</Text>
       <View style={Gutters.regularBMargin} />
       <Button
-        onPress={() => Translations.changeLanguage('id')}
+        onPress={() => changeLanguage('id')}
         appearance="outlined"
         style={Gutters.regularBMargin}>
         Change to Bahasa
       </Button>
       <Button
-        onPress={() => Translations.changeLanguage('en')}
+        onPress={() => changeLanguage('en')}
         style={Gutters.regularBMargin}>
         Change to English
       </Button>
