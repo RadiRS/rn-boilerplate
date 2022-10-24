@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store';
 
-interface InitState {
+export interface InitState {
   isFirstInstall: boolean;
   language: string | null;
 }

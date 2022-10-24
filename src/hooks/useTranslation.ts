@@ -1,19 +1,22 @@
 import { NativeModules, Platform } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { useAppDispatch, useAppSelector } from '@/store';
-import { selectLanguage, setLanguage } from '@/store/init';
+import { InitState, setLanguage } from '@/store/init';
 
 export default function () {
   const { t, i18n } = useTranslation();
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
+
   const deviceLanguage: string =
     Platform.OS === 'ios'
       ? NativeModules.SettingsManager.settings.AppleLocale ||
         NativeModules.SettingsManager.settings.AppleLanguages[0] //iOS 13
       : NativeModules.I18nManager.localeIdentifier;
 
-  const currentLanguage = useAppSelector(selectLanguage) as Language;
+  const currentLanguage = useSelector(
+    (state: { init: InitState }) => state.init.language,
+  );
 
   const setDefaultLanguage = () => {
     const transDeviceLanguage = deviceLanguage.includes('id') ? 'id' : 'en';
