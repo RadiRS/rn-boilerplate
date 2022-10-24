@@ -1,7 +1,15 @@
 import React from 'react';
 
 import { useTheme } from '@/hooks';
-import { SafeArea, Text, Button, Spinner, View, Image } from '@/components/ui';
+import {
+  SafeArea,
+  Text,
+  Button,
+  Spinner,
+  View,
+  Image,
+  Divider,
+} from '@/components/ui';
 import { AppImage } from '@/assets';
 
 const PreviewContainer = () => {
@@ -21,6 +29,7 @@ const PreviewContainer = () => {
           source={AppImage.logo.app}
           style={Gutters.regularBMargin}
         />
+        <Divider style={Gutters.regularBMargin} />
         <Text style={Gutters.regularBMargin}>Test Error Boundary</Text>
         <Button status="error" onPress={bomb}>
           Throw Error
