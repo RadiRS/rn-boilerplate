@@ -11,3 +11,4 @@ export { default as Webview } from './webview';
 export { default as Modal } from './modal';
 export { default as Spinner } from './spinner';
 export { default as View } from './view';
+export { default as Image } from './image';

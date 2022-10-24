@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { useTheme } from '@/hooks';
-import { SafeArea, Text, Button, Spinner, View } from '@/components/ui';
+import { SafeArea, Text, Button, Spinner, View, Image } from '@/components/ui';
+import { AppImage } from '@/assets';
 
-const PreviewContainer: FC = () => {
+const PreviewContainer = () => {
   const { Layout, Gutters, MetricsSizes } = useTheme();
 
   const bomb = () => {
@@ -13,6 +14,13 @@ const PreviewContainer: FC = () => {
   return (
     <SafeArea padder style={Layout.center}>
       <View style={Layout.fullWidth}>
+        <Image
+          rounded
+          size={150}
+          align="center"
+          source={AppImage.logo.app}
+          style={Gutters.regularBMargin}
+        />
         <Text style={Gutters.regularBMargin}>Test Error Boundary</Text>
         <Button status="error" onPress={bomb}>
           Throw Error
