@@ -550,7 +550,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rnb.rnboilerplate.stag;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paceprogrammer.rnboilerplate.stag;
 				PRODUCT_NAME = "RN Boilerplate Stag";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -675,7 +675,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rnb.rnboilerplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paceprogrammer.rnboilerplate;
 				PRODUCT_NAME = "RN Boilerplate";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -797,7 +797,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rnb.rnboilerplate.stag;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paceprogrammer.rnboilerplate.stag;
 				PRODUCT_NAME = "RN Boilerplate Stag";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -910,7 +910,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rnb.rnboilerplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paceprogrammer.rnboilerplate;
 				PRODUCT_NAME = "RN Boilerplate";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1037,7 +1037,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rnb.rnboilerplate.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paceprogrammer.rnboilerplate.dev;
 				PRODUCT_NAME = "RN Boilerplate Dev";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1159,7 +1159,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rnb.rnboilerplate.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paceprogrammer.rnboilerplate.dev;
 				PRODUCT_NAME = "RN Boilerplate Dev";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
