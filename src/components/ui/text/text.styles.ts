@@ -1,16 +1,9 @@
 import { StyleSheet, TextStyle } from 'react-native';
+import { useTheme } from '@/hooks';
+import { TextProps } from './text.types';
 
-import { ThemeVariables } from '@/types/theme';
-import { TextProps } from './text.component';
-
-const styles = ({
-  theme,
-  props,
-}: {
-  theme: ThemeVariables;
-  props: TextProps;
-}) => {
-  const { FontsFamily, FontSize, Colors } = theme;
+const useStyles = (props: TextProps) => {
+  const { FontsFamily, FontSize, Colors } = useTheme();
   const { variant, appearance, status, type, align } = props;
 
   const base: TextStyle = {
@@ -99,4 +92,4 @@ const styles = ({
   });
 };
 
-export default styles;
+export default useStyles;

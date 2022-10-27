@@ -1,10 +1,10 @@
-import { FontsFamily, FontSize, MetricsSizes } from '@/config/theme/variables';
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { useTheme } from '@/hooks';
+import { ButtonProps } from './button.types';
 
-import { ButtonProps } from './button.component';
-
-const styles = ({ theme, props }: { theme: any; props: ButtonProps }) => {
-  const { Colors, Layout, Gutters } = theme;
+const useStyles = (props: ButtonProps) => {
+  const { Colors, Layout, Gutters, MetricsSizes, FontSize, FontsFamily } =
+    useTheme();
   const { status, disabled, appearance, size } = props;
 
   const bSize = 30;
@@ -54,13 +54,20 @@ const styles = ({ theme, props }: { theme: any; props: ButtonProps }) => {
 
   const dis: ViewStyle = disabled ? { backgroundColor: Colors.disabled } : sts;
 
-  const textColor: TextStyle = disabled
+  const fontColor: TextStyle = disabled
     ? { color: Colors.textDisabled }
     : status === 'basic'
     ? { color: Colors.dark }
     : appearance === 'ghost' || appearance === 'outlined'
     ? { color: Colors.primary }
     : { color: Colors.white };
+
+  const fontSize =
+    size === 'small'
+      ? FontSize.tiny
+      : size === 'large'
+      ? FontSize.large3
+      : FontSize.small;
 
   return StyleSheet.create({
     btn: {
@@ -71,16 +78,11 @@ const styles = ({ theme, props }: { theme: any; props: ButtonProps }) => {
       ...bs,
     },
     text: {
-      ...textColor,
-      fontSize:
-        size === 'small'
-          ? FontSize.tiny
-          : size === 'large'
-          ? FontSize.large3
-          : FontSize.small,
+      fontSize,
       fontFamily: FontsFamily.semiBold,
+      ...fontColor,
     },
   });
 };
 
-export default styles;
+export default useStyles;

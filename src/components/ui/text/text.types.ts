@@ -1,3 +1,13 @@
+import { TextProps as RNTextProps } from 'react-native';
+
+export interface TextProps extends RNTextProps {
+  variant?: TextVariants;
+  appearance?: TextAppearances;
+  status?: TextStatus | undefined | null;
+  type?: TextTypes;
+  align?: TextAlign;
+}
+
 export type TextTypes = 'bold' | 'light' | 'italic' | 'regular' | 'semi-bold';
 
 export type TextStatus =

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   SafeAreaView,
   StyleProp,
@@ -6,23 +7,21 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import React, { FC } from 'react';
+
 import { useTheme } from '@/hooks';
-import { ThemeVariables } from '@/types/theme';
 
 interface SafeAreaProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
   padder?: boolean;
 }
 
-const SafeArea: FC<SafeAreaProps> = ({
+const SafeArea: React.FC<SafeAreaProps> = ({
   style,
   children,
   padder,
   ...props
 }: SafeAreaProps) => {
-  const theme = useTheme();
-  const s = styles(theme);
+  const s = useStyles();
   const padding = padder && s.padder;
 
   return (
@@ -34,14 +33,17 @@ const SafeArea: FC<SafeAreaProps> = ({
   );
 };
 
-const styles = (theme: ThemeVariables) =>
-  StyleSheet.create({
+const useStyles = () => {
+  const { MetricsSizes } = useTheme();
+
+  return StyleSheet.create({
     container: {
       flex: 1,
     },
     padder: {
-      padding: theme.MetricsSizes.regular,
+      padding: MetricsSizes.regular,
     },
   });
+};
 
 export default SafeArea;

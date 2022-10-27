@@ -1,24 +1,8 @@
-import { Text as RNText, TextProps as RNTextProps } from 'react-native';
-import React, { FC } from 'react';
+import React from 'react';
+import { Text as RNText } from 'react-native';
 
-import { useTheme } from '@/hooks';
-import styles from './text.styles';
-
-import {
-  TextAppearances,
-  TextStatus,
-  TextVariants,
-  TextTypes,
-  TextAlign,
-} from './text.types';
-
-export interface TextProps extends RNTextProps {
-  variant?: TextVariants;
-  appearance?: TextAppearances;
-  status?: TextStatus | undefined | null;
-  type?: TextTypes;
-  align?: TextAlign;
-}
+import { TextProps } from './text.types';
+import useStyles from './text.styles';
 
 /**
  * Basic text writing.
@@ -45,7 +29,6 @@ export interface TextProps extends RNTextProps {
  *
  * @overview-example TextStyling
  * Text can be styled with `style` property.
- * In most cases this is redundant, if [custom theme is configured](guides/branding).
  * ```
  *
  * import { Text } from '@/components/ui';
@@ -53,9 +36,8 @@ export interface TextProps extends RNTextProps {
  * <Text style={...}>Place your Text</Text>
  * ```
  */
-const Text: FC<TextProps> = ({ style, ...props }: TextProps) => {
-  const theme = useTheme();
-  const s = styles({ theme, props });
+const Text: React.FC<TextProps> = ({ style, ...props }: TextProps) => {
+  const s = useStyles(props);
 
   return <RNText {...props} style={[s.text, style]} />;
 };
