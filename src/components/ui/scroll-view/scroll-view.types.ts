@@ -1,6 +1,4 @@
-import { Ref } from 'react';
 import {
-  ScrollView as RNScrollView,
   ScrollViewProps as RNScrollViewProps,
   StyleProp,
   ViewStyle,
@@ -10,10 +8,9 @@ export interface ScrollViewProps extends RNScrollViewProps {
   style?: StyleProp<ViewStyle>;
   contentContainerStyle?: StyleProp<ViewStyle>;
   refreshing?: boolean;
-  onRefresh?: (() => void) | undefined;
+  onRefresh?: () => void;
   padder?: boolean;
   fill?: boolean;
-  ref?: Ref<RNScrollView>;
 }
 
 export interface BaseScrollParams {
