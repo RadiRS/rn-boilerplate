@@ -1,38 +1,26 @@
-import React, { FC, ReactNode } from 'react';
-import {
-  TouchableOpacity,
-  TouchableOpacityProps,
-  ViewStyle,
-  GestureResponderEvent,
-} from 'react-native';
+import React from 'react';
+import { TouchableOpacity, GestureResponderEvent } from 'react-native';
 
 import { useTheme } from '@/hooks';
 import { Text, Spinner } from '@/components/ui';
-import { ButtonAppearances, ButtonSizes, ButtonStatus } from './button.types';
-import styles from './button.styles';
+import { ButtonProps } from './button.types';
 
-export interface ButtonProps extends TouchableOpacityProps {
-  children?: ReactNode;
-  status?: ButtonStatus;
-  size?: ButtonSizes;
-  appearance?: ButtonAppearances;
-  loading?: boolean | null | undefined;
-  disabled?: boolean | undefined;
-  style?: ViewStyle;
-  onPress?: ((event: GestureResponderEvent) => void) | undefined;
-}
+import useStyles from './button.styles';
 
-const Button: FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   loading,
   style,
   onPress,
   ...props
 }: ButtonProps) => {
-  const theme = useTheme();
+  const { Colors } = useTheme();
   const isString = typeof children === 'string';
 
-  const s = styles({ theme, props });
+  const s = useStyles(props);
+
+  const spinColor =
+    props.appearance === 'outlined' ? Colors.primary : Colors.white;
 
   const extOnPress = (event: GestureResponderEvent): void => {
     if (loading) {
@@ -49,7 +37,7 @@ const Button: FC<ButtonProps> = ({
       onPress={extOnPress}
       {...props}>
       {loading ? (
-        <Spinner isVisible size="small" color={theme.Colors.alternative} />
+        <Spinner isVisible size="small" color={spinColor} />
       ) : (
         isString && <Text style={s.text}>{children}</Text>
       )}
