@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image /> should render component correctly 1`] = `
+<Image
+  style={
+    [
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#212529",
+        "borderRadius": 0,
+        "height": 100,
+        "width": "50%",
+      },
+      undefined,
+    ]
+  }
+/>
+`;
