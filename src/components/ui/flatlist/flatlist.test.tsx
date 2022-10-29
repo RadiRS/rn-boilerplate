@@ -19,11 +19,11 @@ describe('<Flatlist />', () => {
   it('should render list of items correctly', () => {
     const length = 5;
     const data: any[] = new Array(length);
-    const renderItem: ListRenderItem<any> = ({ index }) => <Text>{index}</Text>;
+    const renderItem: ListRenderItem<any> = () => <Text>List Item</Text>;
 
     const rendered = render(<FlatList data={data} renderItem={renderItem} />);
 
-    const items = rendered.UNSAFE_queryAllByType(Text);
+    const items = rendered.queryAllByText('List Item');
 
     expect(items).toHaveLength(length);
   });
