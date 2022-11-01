@@ -13,3 +13,6 @@ export const debounce = <F extends (...args: any[]) => any>(
       timeout = setTimeout(() => resolve(func(...args)), waitFor);
     });
 };
+
+export const waitTo = (duration: number | undefined) =>
+  new Promise<void>(resolve => setTimeout(() => resolve(), duration));
