@@ -13,7 +13,7 @@ describe('<Modal />', () => {
     ).toJSON();
 
     // wait for modal animated to display
-    await waitTo(300);
+    await waitTo(500);
 
     expect(rendered).toMatchSnapshot();
   });
