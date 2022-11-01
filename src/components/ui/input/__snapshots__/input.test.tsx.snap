@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> should render component correctly 1`] = `
+<View
+  style={
+    [
+      {},
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    autoCapitalize="none"
+    placeholderTextColor="#AFB1B6"
+    secureTextEntry={false}
+    style={
+      [
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#AFB1B6",
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "color": "#212529",
+          "fontSize": 16,
+          "padding": 15,
+        },
+        undefined,
+        false,
+      ]
+    }
+  />
+</View>
+`;
