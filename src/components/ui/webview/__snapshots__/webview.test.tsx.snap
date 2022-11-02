@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Webview /> should render component correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "flex": 1,
+        "overflow": "hidden",
+      },
+      {
+        "backgroundColor": "#EFEFF0",
+        "flex": 0,
+        "height": "100%",
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <RNCWebView
+    allowsFullscreenVideo={true}
+    cacheEnabled={true}
+    injectedJavaScriptBeforeContentLoadedForMainFrameOnly={true}
+    injectedJavaScriptForMainFrameOnly={true}
+    javaScriptEnabled={true}
+    messagingEnabled={true}
+    onContentProcessDidTerminate={[Function]}
+    onHttpError={[Function]}
+    onLoadingError={[Function]}
+    onLoadingFinish={[Function]}
+    onLoadingProgress={[Function]}
+    onLoadingStart={[Function]}
+    onMessage={[Function]}
+    onShouldStartLoadWithRequest={[Function]}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+    source={
+      {
+        "uri": "https://google.com",
+      }
+    }
+    style={
+      [
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        },
+        {
+          "backgroundColor": "#ffffff",
+        },
+        {
+          "backgroundColor": "#EFEFF0",
+        },
+      ]
+    }
+    textInteractionEnabled={true}
+    useSharedProcessPool={true}
+  />
+</View>
+`;
