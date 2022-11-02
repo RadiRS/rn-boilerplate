@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScrollView /> should render component correctly 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    [
+      undefined,
+      undefined,
+    ]
+  }
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  style={
+    [
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View />
+</RCTScrollView>
+`;
