@@ -34,8 +34,7 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          package-manager: yarn
-          skip-step: install
+          skip-step: all
           output: report-markdown
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
