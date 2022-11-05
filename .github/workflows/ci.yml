@@ -31,10 +31,11 @@ jobs:
       - run: yarn lint
       # - run: yarn test
 
-      - uses: ArtiomTr/jest-coverage-report-action@v2
+      - name: Coverage Report
+        uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          skip-step: all
+          skip-step: install
           output: report-markdown
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
