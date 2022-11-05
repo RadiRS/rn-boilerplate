@@ -28,8 +28,24 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - run: yarn lint
-      - run: yarn test
+      - name: Run Lint
+        run: yarn lint
+
+      - name: Run Jest
+        run: yarn jest --ci --json --coverage --testLocationInResults --outputFile=report.json
+
+      - name: Coverage Report
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        id: coverage
+        with:
+          skip-step: all
+          package-manager: yarn
+          output: report-markdown
+
+      - name: PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.coverage.outputs.report }}
 # This takes to long time
 # e2e-test-ios:
 #   runs-on: macOS-latest
