@@ -29,7 +29,17 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - run: yarn lint
-      - run: yarn test
+      # - run: yarn test
+
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        id: coverage
+        with:
+          package-manager: yarn
+          skip-step: install
+          output: report-markdown
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.coverage.outputs.report }}
 # This takes to long time
 # e2e-test-ios:
 #   runs-on: macOS-latest
