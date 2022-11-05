@@ -35,7 +35,7 @@ jobs:
         uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          skip-step: install
+          # skip-step: install
           output: report-markdown
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
