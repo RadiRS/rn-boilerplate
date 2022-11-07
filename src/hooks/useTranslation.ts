@@ -19,6 +19,10 @@ export default function () {
   );
 
   const setDefaultLanguage = () => {
+    if (currentLanguage) {
+      return;
+    }
+
     const transDeviceLanguage = deviceLanguage.includes('id') ? 'id' : 'en';
     const language = currentLanguage || transDeviceLanguage;
 
