@@ -10,7 +10,7 @@ const plugins = [
       },
     },
   ],
-  'react-native-reanimated/plugin',
+  // 'react-native-reanimated/plugin',
   'module:react-native-dotenv',
   '@babel/plugin-transform-named-capturing-groups-regex',
 ];

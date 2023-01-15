@@ -12,7 +12,8 @@ import { AuthenticationContainer, OnboardingContainer } from '@/containers';
 
 import { navigationRef } from './utils';
 import { RootStackParamList } from './types';
-import DrawerNavigator from './drawer.navigator';
+// import DrawerNavigator from './drawer.navigator';
+import AppNavigator from './app.navigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -74,8 +75,8 @@ const RootNavigator = () => {
           )}
           {status === 'signIn' && (
             <Stack.Screen
-              name="MainDrawer"
-              component={DrawerNavigator}
+              name="AppNavigator"
+              component={AppNavigator}
               // options={{ animation: 'none' }}
             />
           )}
