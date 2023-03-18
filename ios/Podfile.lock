@@ -326,13 +326,13 @@ PODS:
     - React-perflogger (= 0.71.4)
   - ReactNativeExceptionHandler (2.10.10):
     - React-Core
-  - RNBootSplash (4.4.1):
+  - RNBootSplash (4.5.3):
     - React-Core
-  - RNCAsyncStorage (1.17.11):
+  - RNCAsyncStorage (1.17.12):
     - React-Core
   - RNGestureHandler (2.9.0):
     - React-Core
-  - RNScreens (3.19.0):
+  - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
   - Yoga (1.14.0)
@@ -507,10 +507,10 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 8fa50b38df6b992c76537993a2b0553d3b088004
   ReactCommon: 1fed1243105330aa50ad7051207b61656f5e570b
   ReactNativeExceptionHandler: b11ff67c78802b2f62eed0e10e75cb1ef7947c60
-  RNBootSplash: 4f968c1e098c7ec97939ace039f735e3d335bd4b
-  RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
+  RNBootSplash: 8fb33325dc3620a01984c6660c42cbd93fadcc80
+  RNCAsyncStorage: 09fc8595e6d6f6d5abf16b23a56b257d9c6b7c5b
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
-  RNScreens: ea4cd3a853063cda19a4e3c28d2e52180c80f4eb
+  RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   Yoga: 79dd7410de6f8ad73a77c868d3d368843f0c93e0
 
 PODFILE CHECKSUM: 50732c1394b3b2e5a09fea58975078f7e2eb1ccc
