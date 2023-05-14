@@ -3,7 +3,8 @@ import {
   createBottomTabNavigator,
   BottomTabNavigationOptions,
 } from '@react-navigation/bottom-tabs';
-import { HomeContainer, PreviewContainer, UserContainer } from '@/containers';
+
+import * as Containers from '@/containers';
 import { RootStackParamList } from './types';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
@@ -20,17 +21,17 @@ const AppNavigator = () => {
     <Tab.Navigator screenOptions={options}>
       <Tab.Screen
         name="HomeStack"
-        component={HomeContainer}
+        component={Containers.HomeContainer}
         options={{ title: 'Home' }}
       />
       <Tab.Screen
         name="PreviewStack"
-        component={PreviewContainer}
+        component={Containers.PreviewContainer}
         options={{ title: 'Preview' }}
       />
       <Tab.Screen
         name="UserStack"
-        component={UserContainer}
+        component={Containers.UserContainer}
         options={{ title: 'User' }}
       />
     </Tab.Navigator>

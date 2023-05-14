@@ -30,3 +30,9 @@ jest.mock('react-native-bootsplash', () => {
     getVisibilityStatus: jest.fn().mockResolvedValue('hidden'),
   };
 });
+
+// The mock of react-native-webview
+jest.mock('react-native-webview', () => {
+  const { View } = require('react-native');
+  return View;
+});
